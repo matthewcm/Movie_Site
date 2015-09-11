@@ -1,0 +1,19 @@
+
+<h3><a href="/movies">Home</a> </h3>
+<h1> </h1>
+<p/>
+<%= render('searcher') %>
+
+
+<div><h1/></div>
+<div><li><h4>Search term was : <%= @movie_name.sub('%',' ') %></h4></li></div>
+<div><h1/></div>
+<%results = search(@movie_name)%>
+<ul>
+  <% results.each do |r| %>
+    <% r = single_search(r) %>
+    <li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
+    <%=image_tag(single_poster(r['imdbID']), :size => "50")  %>
+
+    <% end %>
+</ul>
