@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150911111258) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "title"
-    t.string   "omdb_id"
+    t.string   "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "body"

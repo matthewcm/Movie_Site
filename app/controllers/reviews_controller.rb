@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = find_movie.reviews.new
+    @reviews = Review.new
+    @review.omdb_id = @movie.omdb_id
   end
 
   def show
