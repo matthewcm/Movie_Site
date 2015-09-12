@@ -1,7 +1,6 @@
-<h3><a href="/movies">Home</a> </h3>
-<h1> </h1>
-<p/>
-<%= render('searcher') %>
+
+<%= link_to 'Add Review', new_review_path%>
+
 <div class "container">
     <h2><%= "#{@movie["Title"]} ( #{@movie['Year']} ) ( IMDB Rating : #{@movie['imdbRating']} ) ( Rated : #{@movie['Rated']} )" %> </h2>
     <p/>
@@ -17,4 +16,6 @@
     <p><%= link_to("More information on IMDB site", "http://www.imdb.com/title/#{@movie['imdbID'].to_s}/")%> </p>
 
     <h3><%="Reviews:"  %> </h3>
+
+    <%= render partial: 'reviews', :locals => {:id => params[:id]} %>
 </div>

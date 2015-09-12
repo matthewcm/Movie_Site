@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require bootstrap
- *= require slate.min
+ *= require super.min
  *= require nprogress
  *= require nprogress-bootstrap
  */

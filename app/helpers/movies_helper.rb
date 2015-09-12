@@ -7,7 +7,7 @@ module MoviesHelper
     search.select{|movie|  is_good_movie?(movie)}
     end
   def single_search(movie)
-    movie = movie_service.single_movie(movie)
+    @movie = movie_service.single_movie(movie)
  end
   def single_poster(movie_id)
          url = URI.parse('http://img.omdbapi.com/')
@@ -24,6 +24,7 @@ module MoviesHelper
     puts "============="
     ((movie["imdbRating"].to_i > 5 )&& (movie["Type"] == "movie"))
   end
+
   private
   def movie_service
     MovieService.new

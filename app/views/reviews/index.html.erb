@@ -1,18 +1,2 @@
-<p> reviews </p>
-  <%= form_for([@hotel, @review]) do |f| %>
-    <p>
-        <%= f.label :title%>
-    </p>
-    <p>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :body %>
-    </p>
-    <p>
-        <%= f.text_area :body, cols: 30, rows: 10 %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
-<% end %>
+    <h3><%="Reviews:"  %> </h3>
+    <%= render('/movies/reviews')%>

@@ -1,0 +1,32 @@
+
+
+  <%= form_for @review do |f| %>
+  <!-- <div class = "modal" > -->
+   <div class = "modal-dialog" >
+        <div class = 'modal-content'>
+            <div class="modal-header">
+                <h4 class="modal-title">
+                 <p ><%= f.label :title%></p>
+                 <p><%= f.text_area :title , cols:30 %></p>
+                </h4>
+            </div>
+            <div class="modal-body">
+                 <p><%= f.label 'Description' %></p>
+                <p><%= f.text_area :body, cols: 40, rows: 5 %></p>
+            </div>
+            <div  class = "modal-title">
+
+            </div>
+            <div class="modal-footer">
+            <div class="modal-title">
+                <%= f.text_area :movie_id, cols: 10, rows: 1 ,:value => id ,:readonly => true %>
+            </div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <p><%= f.submit nil, :class => "btn btn-success" %></p>
+            </div>
+        </div>
+    </div>
+
+    <% end %>
+
+

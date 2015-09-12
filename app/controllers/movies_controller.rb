@@ -6,16 +6,27 @@ class MoviesController < ApplicationController
 
   def index
     @movie_service = MovieService.new
+    @movies = Movie.new
+
+
    # fresh_when @movies
   end
   def search
     @movie_name = params[:q]
   end
-  def show
-    @movie_service = MovieService.new
-    #Default parameters :) Finally got to use them.
 
+  def show
+    @review = Review.new
+    @movie = singleMovie
+  end
+  def self.movie
+    @movie_service = MovieService.new
     @movie = @movie_service.single_movie(params[:id].to_s, true)
+  end
+  private
+  def singleMovie
+    @movie_service = MovieService.new
+    @movie_service.single_movie(params[:id].to_s, true)
   end
 end
 
