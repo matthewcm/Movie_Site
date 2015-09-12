@@ -1,17 +1,16 @@
 class SeriesController < ApplicationController
     def index
-        @movie_service = MovieService.new
+        @series_service= SeriesService.new
     end
     def search
-        @movie_name = params[:q]
+        @series_name = params[:q]
     end
     def show
         @review = Review.new
-        @movie = singleMovie
+        @season_episode = singleEpisode
     end
     private
-    def singleMovie
-        @movie_service = MovieService.new
-        @movie_service.single_movie(params[:id].to_s, true)
+    def singleEpisode
+        @series_service = MovieService.new
     end
 end

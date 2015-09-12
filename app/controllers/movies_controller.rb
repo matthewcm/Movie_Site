@@ -2,11 +2,8 @@ require 'net/http'
 require 'json'
 require 'uri'
 class MoviesController < ApplicationController
-    #caches_page :index
-
   def index
     @movie_service = MovieService.new
-   # fresh_when @movies
   end
   def search
     @movie_name = params[:q]

@@ -4,14 +4,14 @@
 <ul>
 
 <li>Spider-Man</li>
-<%=results = search('spider')%>
+<%results = search('Game Of thrones')%>
 
 <% if results != false%>
     <ul>
     <% results.each do |r| %>
     <% r = single_search(r) %>
     <span><li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
-    <%= image_tag(single_poster(r['imdbID']), :width => "70", :class =>"img-thumbnail")  %>
+    <%=image_tag(single_poster(r['imdbID']), :width => "70", :class =>"img-thumbnail")  %>
     </span>
 
     <% end %>

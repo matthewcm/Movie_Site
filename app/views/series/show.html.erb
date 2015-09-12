@@ -1,0 +1,20 @@
+
+
+
+<div class "container">
+    <h2><%= "#{@movie["Title"]} ( #{@movie['Year']} ) ( IMDB Rating : #{@movie['imdbRating']} ) ( Rated : #{@movie['Rated']} )" %> </h2>
+    <p/>
+    <p><%= @movie['Plot'] %> </p>
+    <p/>
+    <p><%="Director: #{@movie['Director']}"  %> </p>
+    <p><%="Actors: #{@movie['actors']}"  %> </p>
+    <p/>
+    <p><%="Genre: #{@movie['Genre']}"  %> </p>
+    <%=image_tag(single_poster(@movie['imdbID']), :width => "200")  %>
+
+    <p><%= link_to("More information on IMDB site", "http://www.imdb.com/title/#{@movie['imdbID'].to_s}/")%> </p>
+
+    <h3><%="Reviews:"  %> </h3>
+    <%= link_to 'Add Review', new_review_path%>
+    <%= render partial: 'reviews', :locals => {:id => params[:id]} %>
+</div>
