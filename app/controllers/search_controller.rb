@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     puts :q.sub('+','%'))
     puts'bananapeach'
     puts "============="
-    movie = @movie_service.single_movie(:q)
+    @movie_name = @movie_service.single_movie(:q)
     redirect_to  "/search/{movie['imdbID']}"
   end
   private
