@@ -6,9 +6,6 @@ class MoviesController < ApplicationController
 
   def index
     @movie_service = MovieService.new
-    @movies = Movie.new
-
-
    # fresh_when @movies
   end
   def search

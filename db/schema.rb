@@ -11,21 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911111258) do
-
-  create_table "movies", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "movieTitle"
-    t.string   "omdb_id"
-  end
-
-  create_table "review_link_tables", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "omdb_id"
-    t.integer  "reviewID"
-  end
+ActiveRecord::Schema.define(version: 20150912095158) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "title"
@@ -33,13 +19,6 @@ ActiveRecord::Schema.define(version: 20150911111258) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "body"
-    t.integer  "reviewID"
-  end
-
-  create_table "searches", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
