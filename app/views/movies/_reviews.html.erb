@@ -1,3 +1,5 @@
+<% if  Review.where(movie_id: "#{id}") == nil %>
+<% else %>
 <%= Review.where(movie_id: "#{id}").find_each do |review| %>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -14,5 +16,8 @@
 
         </div>
 <%end%>
+<% end %>
+
+
 
 
