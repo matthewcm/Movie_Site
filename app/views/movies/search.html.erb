@@ -8,7 +8,7 @@
             <div class="col-sm-6">
               <% results.each do |r| %>
                 <% r = single_search(r) %>
-                <li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
+                <li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/(#{r["imdbID"]}").to_s)%> </li>
                 <%=image_tag(single_poster(r['imdbID']), :width => "70")  %>
 
                 <% end %>
