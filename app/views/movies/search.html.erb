@@ -1,8 +1,27 @@
-<div><h1></h1></div>
+<!-- <div><h1></h1></div>
+<% if false %>
 <div><li><h4>Search term was : <%= @movie_name.sub('%',' ') %></h4></li></div>
 <div><h1></h1></div>
 <%results = search(@movie_name)%>
 
+<ul>
+  <% results.each do |r| %>
+    <% r = single_search(r) %>
+    <li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
+    <%=image_tag(single_poster(r['imdbID']), :width => "70", :class =>"img-thumbnail")  %>
+
+    <% end %>
+    <% end %>
+</ul> -->
+
+
+
+<h2>Movies</h2>
+<p>These are the featured movies: </p>
+<ul>
+
+<li>Spider-Man</li>
+<%results = search('spider')%>
 <ul>
   <% results.each do |r| %>
     <% r = single_search(r) %>
