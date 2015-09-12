@@ -45,7 +45,18 @@
       </div>
         <button type="submit" name="commit" class="btn btn-warning"> Submit </button>
       </form>
-      <ul class="nav navbar-nav navbar-right">
+
+      <h5 class="navbar-form navbar-right">
+      <p></p>
+            <% if false %>
+                <%= link_to "Profile ", '#'%>|
+                <%= link_to "Log out", '#', method: "delete"  %>
+
+            <% else %>
+                <%= link_to "Log in", "#"%>|
+                <%= link_to "Sign up", '#' %>
+            <% end %>
+        </h5>
       </ul>
     </div>
   </div>
