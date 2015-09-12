@@ -12,7 +12,13 @@ module MoviesHelper
   def single_poster(movie_id)
          url = URI.parse('http://img.omdbapi.com/')
          searcher = "?i=#{movie_id}"
-        "#{url.to_s}#{searcher}&apikey=40584c09"
+         if movie_service.url_pass("#{url.to_s}#{searcher}&apikey=40584c09")
+         poster = "#{url.to_s}#{searcher}&apikey=40584c09"
+        else
+          poster = 'noposter.jpg'
+        end
+        poster
+
   end
   private
   def is_good_movie?(movie)

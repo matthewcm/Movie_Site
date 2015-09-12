@@ -10,7 +10,6 @@
     <p><%="Actors: #{@movie['actors']}"  %> </p>
     <p/>
     <p><%="Genre: #{@movie['Genre']}"  %> </p>
-
     <%=image_tag(single_poster(@movie['imdbID']), :width => "200")  %>
 
     <p><%= link_to("More information on IMDB site", "http://www.imdb.com/title/#{@movie['imdbID'].to_s}/")%> </p>

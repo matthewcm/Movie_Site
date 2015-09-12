@@ -26,5 +26,14 @@ class MovieService
             http.request(req)}
         movie_body = JSON.parse(res.body)
     end
+    def url_pass(link)
+        url = URI.parse("#{link}")
+        uri = URI(url)
+        request = Net::HTTP.new uri.host
+        response= request.request_head uri.path
+        Net::HTTP.start(url.host, url.port) do |http|
+            return http.head(url.request_uri)['Content-Type'].start_with? 'image'
+        end
+    end
 
 end
