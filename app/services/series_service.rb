@@ -1,18 +1,15 @@
-
 class MovieService
 
-    def search_movies(movies)
+    def search_series(series)
         url = URI.parse('http://www.omdbapi.com/')
-        movies = movies.to_s.gsub(' ', '+')
-        searcher = "?s=#{movies}&apikey=40584c09&type=movie"
+        series = series.gsub(' ', '+')
+        searcher = "?t=#{series}&apikey=40584c09"
         req = Net::HTTP::Get.new("#{url.to_s}#{searcher}")
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
-        puts searcher
-        puts 'pineapple2'
-        movie_list = JSON.parse(res.body)
+        series_list = JSON.parse(res.body)
     end
-    def single_movie(movie, idOn = false)
+    def single_series(series, idOn = false)
         url = URI.parse('http://www.omdbapi.com/')
         if idOn
             searcher = "?i=#{movie}"
@@ -20,7 +17,7 @@ class MovieService
             searcher = "?i=#{movie['imdbID']}"
         end
         #puts "#{url.to_s}#{searcher}"
-        req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09&plot=full")
+        req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09")
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
         movie_body = JSON.parse(res.body)

@@ -11,14 +11,9 @@ class MoviesController < ApplicationController
   def search
     @movie_name = params[:q]
   end
-
   def show
     @review = Review.new
     @movie = singleMovie
-  end
-  def self.movie
-    @movie_service = MovieService.new
-    @movie = @movie_service.single_movie(params[:id].to_s, true)
   end
   private
   def singleMovie

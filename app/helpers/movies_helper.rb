@@ -1,10 +1,16 @@
 module MoviesHelper
   def search(movies)
-    search = movie_service.search_movies(movies)
-    search = search["Search"]
-    search = search.uniq{|m| m["imdbID"]}
-    search = search.sort_by{|n| n["Year"]}
-    search.select{|movie|  is_good_movie?(movie)}
+    searcher = movie_service.search_movies(movies)
+
+    if exists?(searcher) == true
+         searcher = searcher["Search"]
+          searcher = searcher.uniq{|m| m["imdbID"]}
+          searcher = searcher.sort_by{|n| n["Year"]}
+          searcher.select{|movie|  is_good_movie?(movie)}
+    else
+      false
+    end
+
     end
   def single_search(movie)
     @movie = movie_service.single_movie(movie)
@@ -21,14 +27,23 @@ module MoviesHelper
 
   end
   private
+
+  def exists? (movie)
+    if (movie.size == 1 )
+      true
+    else
+      false
+    end
+  end
   def is_good_movie?(movie)
     movie = single_search(movie)
     puts "============="
     puts movie["Title"]
     puts movie["Type"]
     puts movie["imdbRating"]
+    puts movie["Plot"]
     puts "============="
-    ((movie["imdbRating"].to_i > 5 )&& (movie["Type"] == "movie"))
+    ((movie["imdbRating"].to_i > 1) &&  (movie["Plot"] != 'N/A'))
   end
 
   private
