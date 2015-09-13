@@ -4,7 +4,9 @@
 <ul>
 
 <li>Spider-Man</li>
-<%=results = search('spider')%>
+<% puts params[:sort_key] %>
+<% puts 'dodge'%>
+<% results = search('spider', params[:sort_key])%>
 
 <% if results != false%>
     <ul>

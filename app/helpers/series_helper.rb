@@ -1,19 +1,23 @@
 module SeriesHelper
-  def search(series)
-    searcher = series_service.search_series(series)
-
-    if exists?(searcher) == true
-         searcher = searcher["Search"]
-          searcher = searcher.uniq{|m| m["imdbID"]}
-          searcher = searcher.sort_by{|n| n["Year"]}
-          searcher.select{|series|  is_good_series?(series)}
+  def series_search(series, sort_key = 'Year' , how_many = 1)
+    searcher = series_service.single_series(series, how_many)
+    if how_many == 1
+        if exists?(searcher) == true
+              searcher = searcher
+        else
+          false
+        end
     else
-      false
+          if exists?(searcher) == true
+              searcher = searcher["Search"].uniq{|m| m["imdbID"]}
+        else
+          false
+        end
     end
 
     end
-  def single_search(series)
-    @series = series_service.single_series(series)
+  def episode_search(series)
+    @series = series_service.single_episode(series)
  end
   def single_poster(series_id)
          url = URI.parse('http://img.omdbapi.com/')
@@ -28,13 +32,6 @@ module SeriesHelper
   end
   private
 
-  def exists? (series)
-    if (series.size == 1 )
-      true
-    else
-      false
-    end
-  end
   def is_good_series?(series)
     series = single_search(series)
     puts "============="
@@ -50,7 +47,7 @@ module SeriesHelper
   def series_service
     SeriesService.new
   end
-  def searcher_params
-    params.require(:searcher).permit(:search_input)
-  end
+  # def searcher_params
+  #   params.require(:searcher).permit(:search_input)
+  # end
 end

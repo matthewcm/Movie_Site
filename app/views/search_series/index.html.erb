@@ -1,16 +1,16 @@
+
 <div><h1></h1></div>
 
 <div><li><h4>Search term was : <%= @series_name.gsub('+',' ') %></h4></li></div>
 <div><h1></h1></div>
+<%results = series_search(@series_name.gsub('+',' '))%>
 
-<%= @series_name.gsub('+',' ') %>
-<%results = series_search(@series_name.gsub('+',' '), params[:sort_key] , 10)%>
 
 <% if results != false%>
     <ul>
     <% results.each do |r| %>
-    <% r = series_search(r['Title']) %>
-    <span><li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/series/"+(r["Title"]).gsub('+',' ').to_s)%> </li>
+    <% r = episode_search(r) %>
+    <span><li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/series/"+(r["Title"]).to_s)%> </li>
     <%=image_tag(single_poster(r['imdbID']), :width => "70", :class =>"img-thumbnail")  %>
     </span>
 

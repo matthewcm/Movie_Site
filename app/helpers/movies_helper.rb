@@ -1,12 +1,11 @@
 module MoviesHelper
-  def search(movies)
+  def search(movies , sort_key = 'Year')
     searcher = movie_service.search_movies(movies)
-    puts searcher
-    puts '=.='
-    if exists?(searcher) == true
+
+    if exists?(searcher.size) == true
          searcher = searcher["Search"]
           searcher = searcher.uniq{|m| m["imdbID"]}
-          searcher = searcher.sort_by{|n| n["Year"]}
+          searcher = searcher.sort_by{|n| n["#{sort_key}"]}
           searcher = searcher.select{|movie|  is_good_movie?(movie)}
     else
       searcher = false
@@ -30,10 +29,12 @@ module MoviesHelper
   private
 
   def exists? (movie)
-    if movie.size == 1
-      true
-    else
+    if movie == 2
+      puts 'is 2 jaffa'
       false
+    else
+      puts 'not 2 jaffa'
+      true
     end
   end
   def is_good_movie?(movie)
@@ -42,7 +43,6 @@ module MoviesHelper
     puts movie["Title"]
     puts movie["Type"]
     puts movie["imdbRating"]
-    puts movie["Plot"]
     puts "============="
     ((movie["imdbRating"].to_i > 1) &&  (movie["Plot"] != 'N/A'))
   end

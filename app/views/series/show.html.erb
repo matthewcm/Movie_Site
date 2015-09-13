@@ -1,20 +1,30 @@
-
-
-
 <div class "container">
-    <h2><%= "#{@movie["Title"]} ( #{@movie['Year']} ) ( IMDB Rating : #{@movie['imdbRating']} ) ( Rated : #{@movie['Rated']} )" %> </h2>
+    <h2><%= "#{@series["Title"]} ( #{@series['Year']} ) ( IMDB Rating : #{@series['imdbRating']} ) ( Rated : #{@series['Rated']} )" %> </h2>
     <p/>
-    <p><%= @movie['Plot'] %> </p>
+    <p><%= @series['Plot'] %> </p>
     <p/>
-    <p><%="Director: #{@movie['Director']}"  %> </p>
-    <p><%="Actors: #{@movie['actors']}"  %> </p>
+    <p><%="Director: #{@series['Director']}"  %> </p>
+    <p><%="Actors: #{@series['actors']}"  %> </p>
     <p/>
-    <p><%="Genre: #{@movie['Genre']}"  %> </p>
-    <%=image_tag(single_poster(@movie['imdbID']), :width => "200")  %>
+    <p><%="Genre: #{@series['Genre']}"  %> </p>
+    <div>
+    <%=image_tag(single_poster(@series['imdbID']), :align => 'right', :class => 'img-responsive')  %>
+     <span align 'left'>
+    <p> . </p>
+    <p> Pilot Episode:  </p>
+    <span>  <%= @episodes['Title'] %> </span>
+    <span> <%= @episodes['Released']%> </span>
+    <div><%= @episodes['Plot']%></div>
+    <p> . </p>
+    <h1> </h1>
+     </span>
+     </div>
 
-    <p><%= link_to("More information on IMDB site", "http://www.imdb.com/title/#{@movie['imdbID'].to_s}/")%> </p>
+    <div align 'right'>
+    <p><%= link_to("More information on IMDB site", "http://www.imdb.com/title/#{@series['imdbID'].to_s}/") %></p>
+    </div>
 
     <h3><%="Reviews:"  %> </h3>
     <%= link_to 'Add Review', new_review_path%>
-    <%= render partial: 'reviews', :locals => {:id => params[:id]} %>
+    <%= render partial: '/movies/reviews', :locals => {:id => params[:id]} %>
 </div>

@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'search' => 'movies#search'
+  get 'search_series' => 'series#search'
 
   get 'home/index'
 
   resources :movies
-  resources :search
   resources :reviews ,path: 'movies/:id/reviews'
   resources :series
   get 'home/index'

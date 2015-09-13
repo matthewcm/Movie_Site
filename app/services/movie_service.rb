@@ -9,7 +9,6 @@ class MovieService
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
         puts searcher
-        puts 'pineapple2'
         movie_list = JSON.parse(res.body)
     end
 

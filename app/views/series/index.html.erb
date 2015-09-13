@@ -1,54 +1,23 @@
 
 <h2>Movies</h2>
 <p>These are the featured movies: </p>
-<ul>
 
-<li>Spider-Man</li>
-<%results = search('Game Of thrones')%>
+<% series_name_array = ['Game Of Thrones', 'Mr Robot', 'Agents of Shield', 'Silicon Valley', 'Breaking Bad'] %>
+<% results = [series_search('Game Of thrones'), series_search('agents of shield'),series_search('Silicon valley') , series_search('Mr robot'), series_search('Breaking bad')]%>
 
-<% if results != false%>
+<% if results.include?(false) != true%>
+    <% results = results.sort_by{|n| n[params[:sort_key]]} %>
+
     <ul>
-    <% results.each do |r| %>
-    <% r = single_search(r) %>
-    <span><li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
-    <%=image_tag(single_poster(r['imdbID']), :width => "70", :class =>"img-thumbnail")  %>
-    </span>
-
-    <% end %>
+    <% results.each do |results|%>
+        <ul>
+        <span><li><%= link_to("#{results["Title"]} ( #{results["Year"]} )", "/series/"+(results["Title"].gsub('.', '').gsub(' ','+')).to_s)%> </li>
+        <%=image_tag(single_poster(results['imdbID']), :width => "70", :class =>"img-thumbnail")  %>
+        </span>
+        </ul>
+         <% end %>
     </ul>
-<% else %>
+    <% else %>
+    <p>No series exist with that name... Soz </p>
+    <% end  %>
 
-<p>No movies exist with that name... Soz </p>
-<% end  %>
-
-<!--
-<% if false %>
-
-
-
-
-
-<li>Batman</li>
-<% results = search("batman")%>
-<ul>
-  <% results.each do |r| %>
-    <% r = single_search(r) %>
-    <li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
-    <%=image_tag("#{r["Poster"]}", :size => "50")  %>
-    <% end %>
-</ul>
-
-<li>Spiderman</li>
-<%results = search("Spider-Man")%>
-<ul>
-  <% results.each do |r| %>
-    <% r = single_search(r) %>
-    <li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
-    <%=image_tag("#{r["Poster"]}", :size => "50")  %>
-    <% end %>
-</ul>
-<% end %>
--->
-<% if false %>
-
-<% end %>

@@ -2,6 +2,7 @@ require 'net/http'
 require 'json'
 require 'uri'
 class MoviesController < ApplicationController
+  attr_accessor :sort_key
   def index
     @movie_service = MovieService.new
   end
@@ -11,6 +12,11 @@ class MoviesController < ApplicationController
   def show
     @review = Review.new
     @movie = singleMovie
+  end
+  def destroy
+    review = Review.find(params[:id])
+    review.destroy
+    redirect_to movies_path
   end
   private
   def singleMovie

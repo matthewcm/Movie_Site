@@ -10,13 +10,6 @@ class ReviewsController < ApplicationController
     @review = @movies.reviews.find(params[:id])
   end
 
-  def update
-    @review = reviews.find(params[:id])
-    @review.update(review_params)
-    flash[:notice] = "The review was updated. "
-    redirect_to review_path(@movie, @review)
-  end
-
   def new
     @review = Review.new
   end
@@ -33,8 +26,8 @@ class ReviewsController < ApplicationController
   end
   def destroy
     review = Review.find(params[:id])
-    @movies.review.destroy
-    redirect_to movie_path
+    review.destroy
+    redirect_to movie_path(@review.movie_id)
   end
 
   private
