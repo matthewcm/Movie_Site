@@ -1,14 +1,16 @@
 module SeriesHelper
   def series_search(series, sort_key = 'Year' , how_many = 1)
     searcher = series_service.single_series(series, how_many)
+    puts "jajajaja"
+    puts searcher
     if how_many == 1
-        if exists?(searcher) == true
+        if exists?(searcher.size) == true
               searcher = searcher
         else
           false
         end
     else
-          if exists?(searcher) == true
+          if exists?(searcher.size) == true
               searcher = searcher["Search"].uniq{|m| m["imdbID"]}
         else
           false

@@ -21,11 +21,11 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href='/movies'>Movies</a>
+      <a  class="navbar-brand" href="/series">Series </a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/series">Series <span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Filters <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -33,7 +33,6 @@
             <li class="divider"></li>
             <li><%= link_to 'Sort By Release Date', params.merge(:sort_key => 'Year') %></a></li>
           </ul>
-        </li>
       </ul>
 
 
@@ -73,9 +72,5 @@
 </body>
 
 <body>
-<h1><h1>
-<h1><h1>
-<h1><h1>
-<h1><h1>
 </body>
 </html>
