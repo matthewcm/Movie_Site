@@ -69,10 +69,6 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.8.0)
-    mobileesp_converted (0.2.3)
-    mobvious (0.3.2)
-      mobileesp_converted (~> 0.2.0)
-      rack (>= 1.1.0)
     multi_json (1.11.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -112,8 +108,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
-    responsive_images (0.1.2)
-      mobvious
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -160,7 +154,6 @@ DEPENDENCIES
   pg
   rails (= 4.2.4)
   rails_12factor
-  responsive_images
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
