@@ -12,7 +12,7 @@
     <% results.each do |results|%>
         <ul>
         <span><li><%= link_to("#{results["Title"]} ( #{results["Year"]} )", "/series/"+(results["Title"].gsub('.', '').gsub(' ','+')).to_s)%> </li>
-        <%=image_tag(single_poster(results['imdbID']), :width => "70", :class =>"img-thumbnail")  %>
+        <%=image_tag(single_poster(results['imdbID']), :width => "130", :class =>"img-thumbnail")  %>
         </span>
         </ul>
          <% end %>

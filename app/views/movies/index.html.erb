@@ -13,7 +13,7 @@
     <% results.each do |r| %>
     <% r = single_search(r) %>
     <span><li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
-    <%= image_tag(single_poster(r['imdbID']), :width => "70", :class =>"img-thumbnail")  %>
+    <%= image_tag(single_poster(r['imdbID']), :width => "130", :class =>"img-thumbnail")  %>
     </span>
 
     <% end %>
