@@ -1,6 +1,6 @@
 module MoviesHelper
-  def search(movies , sort_key = 'Year')
-    movies = movies.to_s.gsub('"', ' ')
+  def search(movies , sort_key = 'imdbID')
+    movies = movies.to_s.gsub('"', ' ').gsub('<', ' ').gsub('>', ' ').gsub(';', ' ').gsub('/', ' ')
     puts movies
     puts 'test test '
 
@@ -16,8 +16,8 @@ module MoviesHelper
     end
     searcher
   end
-  def single_search(movie)
-    @movie = movie_service.single_movie(movie)
+  def single_search(movie , idOn = false)
+    @movie = movie_service.single_movie(movie, idOn)
  end
   def single_poster(movie_id)
          url = URI.parse('http://img.omdbapi.com/')

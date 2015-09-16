@@ -1,6 +1,6 @@
 module SeriesHelper
-  def series_search(series, sort_key = 'Year' , how_many = 1)
-    series = series.to_s.gsub('"', ' ')
+  def series_search(series, sort_key = 'imdbID' , how_many = 1)
+    series = series.to_s.gsub('"', ' ').gsub('<', ' ').gsub('>', ' ').gsub(';', ' ').gsub('/', ' ')
     puts series
     puts 'test test '
     searcher = series_service.single_series(series, how_many)
@@ -20,6 +20,7 @@ module SeriesHelper
               puts '>1'
               puts searcher
               searcher = searcher.uniq{|m| m["imdbID"]}
+              searcher = searcher.sort_by{|n| n["#{sort_key}"]}
         else
           false
         end

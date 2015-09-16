@@ -2,11 +2,12 @@
 <h1>Movies</h1>
 <h3>These are the featured movies: </h3>
 
-<% puts params[:sort_key] %>
-<% puts 'dodge'%>
-<% results = search('spider', params[:sort_key])%>
+<% results = [single_search('tt0316654', true), single_search('tt0478970', true),single_search('tt0848228', true) ,single_search('tt1524930', true), single_search('tt0113243', true), single_search('tt3416742', true)]%>
+<% puts results %>
+<%# results = search('spider', params[:sort_key])%>
 
 <% if results != false%>
+    <% results = results.sort_by{|n| n[params[:sort_key]]} %>
     <ul>
     <% results.each_slice(4) do |slice| %>
     <% slice.each do |r| %>
