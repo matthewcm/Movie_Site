@@ -19,7 +19,7 @@
             </div>
             <div class="modal-footer">
             <div class="modal-title">
-                <%= f.text_area :movie_id, cols: 10, rows: 1 ,:value => id ,:readonly => true %>
+                <%= f.hidden_field :movie_id, cols: 10, rows: 1 ,:value => id ,:readonly => true %>
             </div>
                 <%=  link_to "Close", movie_path(params[:id]) , :class => 'btn btn-default' %>
                 <p><%= f.submit nil, :class => "btn btn-success" %></p>
