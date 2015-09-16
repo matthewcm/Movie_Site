@@ -1,2 +1,9 @@
     <h3><%="Reviews:"  %> </h3>
-    <%= render('/movies/reviews')%>
+ <% Review.all.find_each do |review| %>
+        <p><%= review.title %></p>
+        <p><%= review.body %></p>
+        <p><%= link_to(image_tag(single_search("#{review.movie_id}", true)['Poster']) , '/movies')%></p>
+        <h1></h1>
+
+
+<% end %>
