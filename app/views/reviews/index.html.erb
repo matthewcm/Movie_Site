@@ -5,10 +5,21 @@
         <% review_of = single_search("#{review.movie_id}", true) %>
         <% puts image_tag(review_of['Poster']) %>
 
-        <% puts 'Person'.pluralize %>
-        <!-- One of my proudest moments -->
-        <p><%= link_to(image_tag(review_of['Poster']) , "/#{(review_of['Type']).pluralize(2)}/#{review_of['imdbID']}")%></p>
+        <% puts pluralize(5, 'Person')%>
+
+        <% if review_of['Type'] == 'movie' %>
+            <% type = 'movies' %>
+        <% else %>
+            <% type = 'series' %>
+        <% end %>
+         <p><%= link_to(image_tag(review_of['Poster']) , "/#{type}/#{review_of['imdbID']}")%></p>
         <h1></h1>
+
+        <!-- One of my proudest moments
+        <% if false %>
+        <p><%= link_to(image_tag(review_of['Poster']) , "/#{(review_of['Type']).pluralize(2)}/#{review_of['imdbID']}")%></p>
+        <% end %> -->
+
 
 
 <% end %>
