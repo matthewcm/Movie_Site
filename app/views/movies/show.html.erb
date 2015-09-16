@@ -2,8 +2,12 @@
 
 
 <div class "container">
-     <%=image_tag(single_poster(@movie['imdbID']), :width => "280", :align => 'right' )  %>
-    <h2><%= "#{@movie["Title"]} ( #{@movie['Year']} ) ( IMDB Rating : #{@movie['imdbRating']} ) ( Rated : #{@movie['Rated']} )" %> </h2>
+    <div class="container-fluid">
+     <div><%=image_tag(single_poster(@movie['imdbID']), :width => "354", :align => 'right' )  %></div>
+
+    <h2 align 'left'><%= "#{@movie["Title"]} ( #{@movie['Year']} )" %></h2>
+     <h2><%= ( "IMDB Rating : ( #{@movie['imdbRating']} )") %></h2>
+          <h2><%= (" Rated : (#{@movie['Rated']} )") %></h2>
     <p/>
 
     <p align 'left'>
@@ -20,4 +24,5 @@
     <h3><%="Reviews:"  %> </h3>
     <%= link_to 'Add Review', new_review_path%>
     <%= render partial: 'reviews', :locals => {:id => params[:id]} %>
+</div>
 </div>

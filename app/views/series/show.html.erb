@@ -1,5 +1,9 @@
+ <div class="container-fluid">
+     <div><%=image_tag(single_poster(@series['imdbID']), :width => "354", :align => 'right' )  %></div>
 
-    <h2><%= "#{@series["Title"]} ( #{@series['Year']} ) ( IMDB Rating : #{@series['imdbRating']} ) ( Rated : #{@series['Rated']} )" %> </h2>
+    <h2 align 'left'><%= "#{@series["Title"]} ( #{@series['Year']} )" %></h2>
+     <h2><%= ( "IMDB Rating : ( #{@series['imdbRating']} )") %></h2>
+          <h2><%= (" Rated : (#{@series['Rated']} )") %></h2>
     <p>
     <p><%= @series['Plot'] %> </p>
     <p/>
@@ -7,9 +11,6 @@
     <p><%="Actors: #{@series['actors']}"  %> </p>
     <p/>
     <p><%="Genre: #{@series['Genre']}"  %> </p>
-
-    <div>
-      <div>%=image_tag(single_poster(@series['imdbID']), :width => '1000', :align => 'right' )%></div>
 
      <span align 'left'>
     <p> . </p>
@@ -30,5 +31,3 @@
     <%= link_to 'Add Review', new_review_path%>
     <%= render partial: '/movies/reviews', :locals => {:id => params[:id]} %>
 
-
-     <div><%=image_tag(single_poster(@series['imdbID']), :width => '1000', :align => 'right' )%></div>

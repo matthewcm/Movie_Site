@@ -1,5 +1,8 @@
 module SeriesHelper
   def series_search(series, sort_key = 'Year' , how_many = 1)
+    series = series.to_s.gsub('"', ' ')
+    puts series
+    puts 'test test '
     searcher = series_service.single_series(series, how_many)
     puts "jajajaja"
     puts searcher

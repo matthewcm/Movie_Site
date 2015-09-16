@@ -1,6 +1,10 @@
 module MoviesHelper
   def search(movies , sort_key = 'Year')
-    searcher = movie_service.search_movies(movies)
+    movies = movies.to_s.gsub('"', ' ')
+    puts movies
+    puts 'test test '
+
+    searcher = movie_service.search_movies(movies.to_s)
 
     if exists?(searcher.size) == true
          searcher = searcher["Search"]
