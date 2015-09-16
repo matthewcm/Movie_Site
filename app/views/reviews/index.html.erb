@@ -1,8 +1,13 @@
     <h3><%="Reviews:"  %> </h3>
  <% Review.all.find_each do |review| %>
-        <p><%= review.title %></p>
+        <p>Username: <%= review.title %></p>
         <p><%= review.body %></p>
-        <p><%= link_to(image_tag(single_search("#{review.movie_id}", true)['Poster']) , '/movies')%></p>
+        <% review_of = single_search("#{review.movie_id}", true) %>
+        <% puts image_tag(review_of['Poster']) %>
+
+
+        <!-- One of my proudest moments -->
+        <p><%= link_to(image_tag(review_of['Poster']) , "/#{review_of['Type'].pluralize}/#{review_of['imdbID']}")%></p>
         <h1></h1>
 
 

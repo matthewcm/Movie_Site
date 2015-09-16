@@ -19,7 +19,7 @@ class SeriesService
         series = series.gsub(' ', '+')
         searcher = "?t=#{series}&Season=#{season}&Episode=#{episode}"
         puts "#{url.to_s}#{searcher}&apikey=40584c09"
-        req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09&plot=full")
+        req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09")
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
         series_body = JSON.parse(res.body)

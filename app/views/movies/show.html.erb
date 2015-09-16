@@ -1,9 +1,6 @@
-
-
-
 <div class "container">
     <div class="container-fluid">
-     <div><%=image_tag(single_poster(@movie['imdbID']), :width => "354", :align => 'right' )  %></div>
+     <div><%=image_tag((@movie['Poster']), :width => "297", :align => 'right' )  %></div>
 
     <h2 align 'left'><%= "#{@movie["Title"]} ( #{@movie['Year']} )" %></h2>
      <h2><%= ( "IMDB Rating : ( #{@movie['imdbRating']} )") %></h2>
@@ -14,7 +11,7 @@
     <p><%= @movie['Plot'] %> </p>
     <p/>
     <p><%="Director: #{@movie['Director']}"  %> </p>
-    <p><%="Actors: #{@movie['actors']}"  %> </p>
+    <p><%="Actors: #{@movie['Actors']}"  %> </p>
     <p/>
     <p><%="Genre: #{@movie['Genre']}"  %> </p>
     </p>

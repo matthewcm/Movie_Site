@@ -17,8 +17,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     #@review.omdb_id = MoviesController.movie['imdbID']
-      if (@review.save)
 
+      if (@review.save)
         redirect_to movie_path(@review.movie_id)
     else
       render :new
@@ -26,8 +26,9 @@ class ReviewsController < ApplicationController
   end
   def destroy
     review = Review.find(params[:id])
+     id = review.movie_id
     review.destroy
-    redirect_to movie_path(@review.movie_id)
+    redirect_to movie_path(id)
   end
 
   private

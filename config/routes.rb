@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'search' => 'movies#search'
   get 'search_series' => 'series#search'
   get 'home/index'
-  get 'reviews' => 'reviews#index'
+  get 'reviews/all' => 'reviews#index'
   resources :movies
   resources :reviews ,path: 'movies/:id/reviews'
   resources :series

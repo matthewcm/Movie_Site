@@ -17,10 +17,10 @@ class MovieService
         if idOn
             searcher = "?i=#{movie}"
         else
-            searcher = "?i=#{movie['imdbID']}&plot=full"
+            searcher = "?i=#{movie['imdbID']}"
         end
         #puts "#{url.to_s}#{searcher}"
-        req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09")
+        req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09&plot=full")
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
         movie_body = JSON.parse(res.body)

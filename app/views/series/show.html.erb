@@ -1,5 +1,5 @@
  <div class="container-fluid">
-     <div><%=image_tag(single_poster(@series['imdbID']), :width => "354", :align => 'right' )  %></div>
+     <div><%=image_tag((@series['Poster']), :width => "297", :align => 'right' )  %></div>
 
     <h2 align 'left'><%= "#{@series["Title"]} ( #{@series['Year']} )" %></h2>
      <h2><%= ( "IMDB Rating : ( #{@series['imdbRating']} )") %></h2>
@@ -8,15 +8,16 @@
     <p><%= @series['Plot'] %> </p>
     <p/>
     <p><%="Director: #{@series['Director']}"  %> </p>
-    <p><%="Actors: #{@series['actors']}"  %> </p>
+    <p><%="Actors: #{@series['Actors']}"  %> </p>
     <p/>
     <p><%="Genre: #{@series['Genre']}"  %> </p>
 
      <span align 'left'>
     <p> . </p>
     <p> Pilot Episode:  </p>
+    <span> <%= @episodes['Released']%> :    </span>
     <span>  <%= @episodes['Title'] %> </span>
-    <span> <%= @episodes['Released']%> </span>
+
     <div><%= @episodes['Plot']%></div>
     <p> . </p>
     <h1> </h1>
