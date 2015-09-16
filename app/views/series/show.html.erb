@@ -1,14 +1,16 @@
-<div class "container">
+
     <h2><%= "#{@series["Title"]} ( #{@series['Year']} ) ( IMDB Rating : #{@series['imdbRating']} ) ( Rated : #{@series['Rated']} )" %> </h2>
-    <p/>
+    <p>
     <p><%= @series['Plot'] %> </p>
     <p/>
     <p><%="Director: #{@series['Director']}"  %> </p>
     <p><%="Actors: #{@series['actors']}"  %> </p>
     <p/>
     <p><%="Genre: #{@series['Genre']}"  %> </p>
+
     <div>
-    <%=image_tag(single_poster(@series['imdbID']), :align => 'right', :class => 'img-responsive')  %>
+      <div>%=image_tag(single_poster(@series['imdbID']), :width => '1000', :align => 'right' )%></div>
+
      <span align 'left'>
     <p> . </p>
     <p> Pilot Episode:  </p>
@@ -27,4 +29,6 @@
     <h3><%="Reviews:"  %> </h3>
     <%= link_to 'Add Review', new_review_path%>
     <%= render partial: '/movies/reviews', :locals => {:id => params[:id]} %>
-</div>
+
+
+     <div><%=image_tag(single_poster(@series['imdbID']), :width => '1000', :align => 'right' )%></div>

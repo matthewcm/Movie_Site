@@ -1,24 +1,30 @@
 
-<h2>Movies</h2>
-<p>These are the featured movies: </p>
+<h1>Series</h1>
+<h3>These are the featured tv series: </h3>
 
 <% series_name_array = ['Game Of Thrones', 'Mr Robot', 'Agents of Shield', 'Silicon Valley', 'Breaking Bad'] %>
-<% results = [series_search('Game Of thrones'), series_search('agents of shield'),series_search('Silicon valley') , series_search('Mr robot'), series_search('Breaking bad')]%>
+<% results = [series_search('tt0944947'), series_search('tt4158110'),series_search('tt2575988') , series_search('tt2364582'), series_search('tt0903747')]%>
+<% puts results %>
+
+<style type="text/css">
+.imgA1 {z-index: 1; }
+.imgB1 {z-index: 3; }
+</style>
 
 <% if results.include?(false) != true%>
     <% results = results.sort_by{|n| n[params[:sort_key]]} %>
 
     <ul>
-    <% results.each do |results|%>
-        <ul>
-        <span><li><%= link_to("#{results["Title"]} ( #{results["Year"]} )", "/series/"+(results["Title"].gsub('.', '').gsub(' ','+')).to_s)%> </li>
-        <%=image_tag(single_poster(results['imdbID']), :width => "130", :class =>"img-thumbnail")  %>
-        </span>
-        </ul>
-         <% end %>
+    <% results.each_slice(2) do |slice| %>
+    <% slice.each do  |r| %>
+    <div class = 'col-sm-6'><li><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/series/"+(r["imdbID"]).to_s)%></h4>
+    <div style="height: 400px;"> <%= link_to(image_tag(single_poster(r['imdbID']), :width => "200", :class =>"img-thumbnail"),  "/series/"+(r["imdbID"]).to_s) %>
+    </div> </li></div>
+    <% end %>
+    <% end %>
     </ul>
     <% else %>
     <p>No series exist with that name... Sorry </p>
-    <img src = 'nothing_here.gif'>
+
     <% end  %>
 

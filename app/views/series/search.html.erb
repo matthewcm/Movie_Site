@@ -3,16 +3,18 @@
 <div><li><h4>Search term was : <%= @series_name.gsub('+',' ') %></h4></li></div>
 <div><h1></h1></div>
 
-<%results = series_search(@series_name.gsub('+',' '), params[:sort_key] , 10)%>
-
+<% results = series_search(@series_name.gsub('+',' '), params[:sort_key] , 10)%>
+<%= puts results %>
+<% puts 'aplle' %>
 <% if results != false%>
     <ul>
-    <% results.each do |r| %>
-    <% r = series_search(r['Title']) %>
-    <span><li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/series/"+(r["Title"]).gsub('+',' ').to_s)%> </li>
-    <%=image_tag(single_poster(r['imdbID']), :width => "130", :class =>"img-thumbnail")  %>
-    </span>
-
+    <% results.each_slice(2) do |slice| %>
+    <% slice.each do |r| %>
+    <% r = series_search(r['imdbID']) %>
+    <div class = 'col-sm-6'><li><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/series/"+(r["imdbID"]).to_s)%></h4>
+    <div style="height: 400px;"><%= link_to(image_tag(single_poster(r['imdbID']), :width => "200", :class =>"img-thumbnail"),  "/series/"+(r["imdbID"]).to_s) %> </div>
+    </li></div>
+    <% end %>
     <% end %>
     </ul>
 <% else %>

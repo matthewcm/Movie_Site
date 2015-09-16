@@ -1,6 +1,7 @@
 require 'net/http'
 require 'json'
 require 'uri'
+require 'enumerator'
 class MoviesController < ApplicationController
   attr_accessor :sort_key
   def index

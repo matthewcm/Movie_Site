@@ -44,7 +44,7 @@ module MoviesHelper
     puts movie["Type"]
     puts movie["imdbRating"]
     puts "============="
-    ((movie["imdbRating"].to_i > 1) &&  (movie["Plot"] != 'N/A'))
+    ((movie["imdbRating"].to_i > 4) &&  (movie["Rated"] != 'N/A'))
   end
 
   private

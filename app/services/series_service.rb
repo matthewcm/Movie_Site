@@ -2,10 +2,10 @@ class SeriesService
 
     def single_series(series , how_many = 1)
         url = URI.parse('http://www.omdbapi.com/')
-        series = series.gsub(' ', '+')
         if how_many == 1
-            searcher = "?t=#{series}&apikey=40584c09"
+            searcher = "?i=#{series}&apikey=40584c09"
         else
+            series = series.to_s.gsub(' ',"+")
             searcher = "?s=#{series}&apikey=40584c09&type=series"
         end
         puts "#{url.to_s}#{searcher}"

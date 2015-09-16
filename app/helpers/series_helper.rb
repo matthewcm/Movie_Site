@@ -5,19 +5,26 @@ module SeriesHelper
     puts searcher
     if how_many == 1
         if exists?(searcher.size) == true
+            puts searcher
+            puts '1'
               searcher = searcher
         else
           false
         end
     else
           if exists?(searcher.size) == true
-              searcher = searcher["Search"].uniq{|m| m["imdbID"]}
+              searcher = searcher["Search"]
+              puts '>1'
+              puts searcher
+              searcher = searcher.uniq{|m| m["imdbID"]}
         else
           false
         end
     end
 
+
     end
+
   def episode_search(series)
     @series = series_service.single_episode(series)
  end
@@ -35,8 +42,9 @@ module SeriesHelper
   private
 
   def is_good_series?(series)
-    series = single_search(series)
+    series = series_service.single_series(series)
     puts "============="
+    puts series
     puts series["Title"]
     puts series["Type"]
     puts series["imdbRating"]

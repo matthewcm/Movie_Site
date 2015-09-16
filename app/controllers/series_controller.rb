@@ -9,6 +9,9 @@ class SeriesController < ApplicationController
     @review = Review.new
     @episodes = singleEpisode
     @series = searchSeries
+    puts @series
+    puts 'escuses'
+    @series
   end
   def destroy
     review = Review.find(params[:id])
@@ -18,7 +21,7 @@ class SeriesController < ApplicationController
   private
   def singleEpisode
         @series_service = SeriesService.new
-        @series_service.single_episode(params[:id].to_s, 1)
+        @series_service.single_episode((searchSeries['Title'].to_s), 1)
   end
   def searchSeries
         @series_service = SeriesService.new

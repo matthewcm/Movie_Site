@@ -2,10 +2,11 @@
 
 
 <div class "container">
+     <%=image_tag(single_poster(@movie['imdbID']), :width => "280", :align => 'right' )  %>
     <h2><%= "#{@movie["Title"]} ( #{@movie['Year']} ) ( IMDB Rating : #{@movie['imdbRating']} ) ( Rated : #{@movie['Rated']} )" %> </h2>
     <p/>
-    <%=image_tag(single_poster(@movie['imdbID']), :width => "280", :align => 'right' )  %>
-    <p align 'left'
+
+    <p align 'left'>
     <p><%= @movie['Plot'] %> </p>
     <p/>
     <p><%="Director: #{@movie['Director']}"  %> </p>

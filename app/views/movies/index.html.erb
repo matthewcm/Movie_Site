@@ -1,21 +1,20 @@
 
-<h2>Movies</h2>
-<p>These are the featured movies: </p>
-<ul>
+<h1>Movies</h1>
+<h3>These are the featured movies: </h3>
 
-<li>Spider-Man</li>
 <% puts params[:sort_key] %>
 <% puts 'dodge'%>
 <% results = search('spider', params[:sort_key])%>
 
 <% if results != false%>
     <ul>
-    <% results.each do |r| %>
+    <% results.each_slice(3) do |slice| %>
+    <% slice.each do |r| %>
     <% r = single_search(r) %>
-    <span><li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
-    <%= image_tag(single_poster(r['imdbID']), :width => "130", :class =>"img-thumbnail")  %>
-    </span>
-
+    <div class = 'col-sm-6'><li><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%></h4>
+    <div style="height: 400px;"><%= link_to(image_tag(single_poster(r['imdbID']), :width => "200", :class =>"img-thumbnail"),  "/movies/"+(r["imdbID"]).to_s) %> </div>
+    </li></div>
+    <% end %>
     <% end %>
     </ul>
 <% else %>
