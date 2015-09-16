@@ -12,7 +12,7 @@ module Matts_Movies
     console do
       ActiveRecord::Base.connection
     end
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += %w(nothing_here.gif)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -27,5 +27,14 @@ module Matts_Movies
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif,
+                                  "fontawesome-webfont.ttf",
+                                 "fontawesome-webfont.eot",
+                                 "fontawesome-webfont.svg",
+                                 "fontawesome-webfont.woff")
+    config.assets.paths << Rails.root.join('vendor', 'assets')
+
   end
 end
