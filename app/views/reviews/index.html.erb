@@ -7,7 +7,7 @@
 
         <% puts 'Person'.pluralize %>
         <!-- One of my proudest moments -->
-        <p><%= link_to(image_tag(review_of['Poster']) , "/#{review_of['Type'].pluralize}/#{review_of['imdbID']}")%></p>
+        <p><%= link_to(image_tag(review_of['Poster']) , "/#{(review_of['Type']).pluralize(2)}/#{review_of['imdbID']}")%></p>
         <h1></h1>
 
 
