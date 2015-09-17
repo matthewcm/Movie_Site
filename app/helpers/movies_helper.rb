@@ -19,16 +19,16 @@ module MoviesHelper
   def single_search(movie , idOn = false)
     @movie = movie_service.single_movie(movie, idOn)
  end
-  def single_poster(movie_id)
-         url = URI.parse('http://img.omdbapi.com/')
-         searcher = "?i=#{movie_id}"
-         if movie_service.url_pass("#{url.to_s}#{searcher}&apikey=40584c09")
-         poster = "#{url.to_s}#{searcher}&apikey=40584c09"
+  def single_poster(movie_poster)
+          puts movie_poster
+          puts 'apricot'
+         url = URI.parse(movie_poster)
+         if movie_poster != 'N/A'
+         poster = "#{url.to_s}"
         else
           poster = 'noposter.jpg'
         end
         poster
-
   end
   private
 

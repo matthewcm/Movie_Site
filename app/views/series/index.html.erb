@@ -9,7 +9,7 @@
 <% if results.include?(false) != true%>
     <% results = results.sort_by{|n| n[params[:sort_key]]} %>
 
-    <ul>
+    <ul type="disc">
     <% results.each_slice(4) do |slice| %>
     <% slice.each do  |r| %>
     <div class = 'col-sm-6 col-lg-4'><li><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/series/"+(r["imdbID"]).to_s)%></h4>

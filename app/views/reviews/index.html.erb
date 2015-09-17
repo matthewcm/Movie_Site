@@ -3,7 +3,7 @@
         <p>Username: <%= review.title %></p>
         <p><%= review.body %></p>
         <% review_of = single_search("#{review.movie_id}", true) %>
-        <% puts image_tag(review_of['Poster']) %>
+        <% puts image_tag(single_poster(review_of['Poster'])) %>
 
         <% puts pluralize(5, 'Person')%>
 
