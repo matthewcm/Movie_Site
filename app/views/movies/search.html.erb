@@ -6,17 +6,15 @@
 
 
 <% if results != false%>
-    <ul type="disc">
     <% results.each_slice(4) do |slice| %>
     <% slice.each do |r| %>
     <% r = single_search(r) %>
-    <div class = 'col-sm-6 col-lg-4'><li><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/movies/"+(r["imdbID"]).to_s)%></h4>
+    <div class = 'col-sm-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/movies/"+(r["imdbID"]).to_s)%></h4>
     <% puts image_tag((r['Poster']), :width => "200", :class =>"img-thumbnail") %>
     <div style="height: 400px;"><%= link_to(image_tag(single_poster(r['Poster']), :width => "200", :class =>"img-thumbnail"),  "/movies/"+(r["imdbID"]).to_s) %> </div>
-    </li></div>
+    </div>
     <% end %>
     <% end %>
-    </ul>
 <% else %>
 
 <p>No movies exist with that name... Sorry </p>

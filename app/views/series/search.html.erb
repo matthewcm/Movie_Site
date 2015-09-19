@@ -7,16 +7,14 @@
 <%= puts results %>
 <% puts 'aplle' %>
 <% if results != false%>
-    <ul type="disc">
     <% results.each_slice(4) do |slice| %>
     <% slice.each do |r| %>
     <% r = series_search(r['imdbID']) %>
-    <div class = 'col-sm-6 col-lg-4'><li><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/series/"+(r["imdbID"]).to_s)%></h4>
+    <div class = 'col-sm-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/series/"+(r["imdbID"]).to_s)%></h4>
     <div style="height: 400px;"><%=  link_to(image_tag(single_poster(r['Poster']), :width => "200", :class =>"img-thumbnail"),  "/series/"+(r["imdbID"]).to_s) %> </div>
-    </li></div>
+    </div>
     <% end %>
     <% end %>
-    </ul>
 <% else %>
 
 <p>No series exist with that name... Sorry </p>
