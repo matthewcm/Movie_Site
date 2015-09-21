@@ -1,6 +1,7 @@
 <% if  Review.where(movie_id: "#{id}") == nil %>
 <% else %>
-<%= Review.where(movie_id: "#{id}").find_each do |review| %>
+<% reviews = Review.where(movie_id: "#{id}") %>
+<% reviews.reverse_each do |review| %>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <%= review.title %>
