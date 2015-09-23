@@ -52,13 +52,15 @@
       </form>
       <a  class="navbar-brand" href="/reviews/all">Reviews</a>
       <div class=" navbar-form navbar-right">
-            <% if false %>
+            <% if logged_in? %>
+                 <span><a class="navbar-brand" data-method='delete' href='/logout'%>Log out</a></span>
+                  <span class="navbar-brand">|</span>
                 <span><a class="navbar-brand" href='<%user_path(current_user) %>' >Profile</a></span>
-                <span> || </span>
-                <span><a class="navbar-brand" href=<%ink_to logout_path, method: 'delete'%>>Log out</a></span>
+
+
 
             <% else %>
-                <span> <a class="navbar-brand" href=<%login_path%>>Log In</a> </span>
+                <span> <a class="navbar-brand" href='/login'>Log In</a> </span>
                 <span class="navbar-brand">|</span>
                 <span><a class="navbar-brand" href= '/users/new'>Sign up</a></span>
             <% end %>

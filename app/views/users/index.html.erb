@@ -1,0 +1,12 @@
+
+<% users = User.all %>
+<% users.each do |user|%>
+<table border = '2' class = 'table-bordered'>
+    <thread>
+    <tr><td>Name:</td><td><%= user.name %></td></tr>
+    <tr><td>Email:</td><td><%= user.email %></td></tr>
+    </thread>
+</table>
+<h1/>
+    <% end %>
+
