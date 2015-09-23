@@ -2,6 +2,7 @@ require 'net/http'
 require 'json'
 require 'uri'
 require 'enumerator'
+require_dependency 'validators/email_validator.rb'
 class MoviesController < ApplicationController
   attr_accessor :sort_key
   def index
