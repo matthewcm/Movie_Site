@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
+
   get 'search' => 'movies#search'
   get 'search_series' => 'series#search'
   get 'home/index'
   get 'reviews/all' => 'reviews#index'
+  get 'home/index'
   resources :movies
   resources :reviews ,path: 'movies/:id/reviews'
   resources :series
-  get 'home/index'
+
+
+  resources :users
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

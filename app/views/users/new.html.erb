@@ -1,0 +1,38 @@
+<h3>Sign up</h3>
+<%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+        <p>The form contains <%= pluralize(@user.errors.count, "error") %> </p>
+        <ul>
+        <% @user.errors.full_messages.each do | message | %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>
+    <% end %>
+    <p>
+        <%= f.label :name %>
+    </p>
+    <p>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :email %>
+    </p>
+    <p>
+        <%= f.email_field :email %>
+    </p>
+    <p>
+        <%= f.label :password %>
+    </p>
+    <p>
+        <%= f.password_field :password %>
+    </p>
+    <p>
+        <%= f.label :password_confirmation, "Confirmation" %>
+    </p>
+    <p>
+        <%= f.password_field :password_confirmation %>
+    </p>
+    <p>
+        <%= f.submit "Sign up", class: "btn btn-primary" %>
+    </p>
+<% end %>
