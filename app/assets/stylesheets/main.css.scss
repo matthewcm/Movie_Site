@@ -38,3 +38,22 @@
         overflow: hidden!important;
     }
 }
+.images {
+    border: 1px solid #8AC007;
+    border-radius:25px
+}
+.padding {
+    padding-right: 400px;
+}
+#floated{
+    float: right;
+    width: 380px;
+    background: red;
+
+}
+p:before {
+  content: "";
+  width: 10em;
+  display: block;
+  overflow: hidden;
+}

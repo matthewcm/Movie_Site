@@ -1,25 +1,24 @@
  <div class="container-fluid">
-     <div><%=image_tag(single_poster(@series['Poster']), :alt => "#{@series['Title']} tv-series poster", :width => "297", :align => 'right' )  %></div>
+     <div><%=image_tag(single_poster(@series['Poster']), :alt => "#{@series['Title']} tv-series poster", :width => "340", :align => 'right',:style => 'padding-left: 40px; padding-bottom: 40px')  %></div>
 
     <h2 align 'left'><%= "#{@series["Title"]} ( #{@series['Year']} )" %></h2>
      <h2><%= ( "IMDB Rating : ( #{@series['imdbRating']} )") %></h2>
           <h2><%= (" Rated : (#{@series['Rated']} )") %></h2>
+    <div>
     <p>
     <p><%= @series['Plot'] %> </p>
     <p/>
     <p><%="Director: #{@series['Director']}"  %> </p>
-    <p><%="Actors: #{@series['Actors']}"  %> </p>
+    <p> <%="Actors: #{@series['Actors']}"  %> </p>
     <p/>
-    <p><%="Genre: #{@series['Genre']}"  %> </p>
+    <p style = 'padding-bottom:40px;'><%="Genre: #{@series['Genre']}"  %> </p>
 
      <span align 'left'>
-    <p> . </p>
-    <p> Pilot Episode:  </p>
+    <p style = 'padding-bottom:15px;'> Pilot Episode:  </p>
     <span> <%= @episodes['Released']%> :    </span>
     <span>  <%= @episodes['Title'] %> </span>
 
-    <div><%= @episodes['Plot']%></div>
-    <p> . </p>
+    <div style ='padding-bottom:20px;'><%= @episodes['Plot']%></div>
     <h1> </h1>
      </span>
      </div>
@@ -31,4 +30,4 @@
     <h3><%="Reviews:"  %> </h3>
     <%= link_to 'Add Review', new_review_path%>
     <%= render partial: '/movies/reviews', :locals => {:id => params[:id]} %>
-
+</div>
