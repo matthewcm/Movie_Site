@@ -55,7 +55,7 @@
             <% if logged_in? %>
                  <span><a class="navbar-brand" data-method='delete' href='/logout'%>Log out</a></span>
                   <span class="navbar-brand">|</span>
-                <span><a class="navbar-brand" href='<%user_path(current_user) %>' >Profile</a></span>
+                <span><a class="navbar-brand" href='<%= user_path(current_user) %>' >Profile</a></span>
 
 
 
@@ -68,10 +68,22 @@
     </div>
     <p/>
   </div>
+  </nav>
+<% if @current_user != nil %>
+<nav>
+  <div class="container-fluid">
+    <div class="navbar-header">
+  <p class="navbar-brand"><%=  (@current_user.name  if  @current_user != nil)%> <%= (link_to'......Not you?', logout_path, method: 'delete' if  @current_user != nil)%></p>
+  </div>
 </nav>
+<% end %>
+
 
 <div class = "container" >
+
 <ul class = 'nav nav-tabs' >
+
+
  <% flash.each do |name, msg| -%>
               <%= content_tag :div, msg, class: name %>
             <% end -%>
