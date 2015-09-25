@@ -12,6 +12,7 @@ module Matts_Movies
     console do
       ActiveRecord::Base.connection
     end
+    config.assets.initialize_on_precompile = false
     config.assets.precompile += %w(nothing_here.gif)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
