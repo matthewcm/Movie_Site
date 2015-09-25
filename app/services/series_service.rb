@@ -8,7 +8,6 @@ class SeriesService
             series = series.to_s.gsub(' ',"+")
             searcher = "?s=#{series}&apikey=40584c09&type=series"
         end
-        puts "#{url.to_s}#{searcher}"
         req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&plot=full")
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
@@ -18,20 +17,23 @@ class SeriesService
         url = URI.parse('http://www.omdbapi.com/')
         series = series.gsub(' ', '+')
         searcher = "?t=#{series}&Season=#{season}&Episode=#{episode}"
-        puts "#{url.to_s}#{searcher}&apikey=40584c09"
         req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09")
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
         series_body = JSON.parse(res.body)
     end
     def url_pass(link)
-        url = URI.parse("#{link}")
-        uri = URI(url)
+        uri = URI(link)
+        res = Net::HTTP.get_response(uri)
+             puts res.code
+            puts 'RES CODE ^^^^^^'
+            res.code
         request = Net::HTTP.new uri.host
         response= request.request_head uri.path
-        Net::HTTP.start(url.host, url.port) do |http|
-            return http.head(url.request_uri)['Content-Type'].start_with? 'image'
+        Net::HTTP.start(uri.host, uri.port) do |http|
+            return http.head(uri.request_uri)['Content-Type'].start_with? 'image'
         end
+
     end
 
 end

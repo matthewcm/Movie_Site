@@ -8,7 +8,6 @@ class MovieService
         req = Net::HTTP::Get.new("#{url.to_s}#{searcher}")
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
-        puts searcher
         movie_list = JSON.parse(res.body)
     end
 
@@ -27,13 +26,19 @@ class MovieService
         movie_body = JSON.parse(res.body)
     end
     def url_pass(link)
-        url = URI.parse("#{link}")
-        uri = URI(url)
-        request = Net::HTTP.new uri.host
-        response= request.request_head uri.path
-        Net::HTTP.start(url.host, url.port) do |http|
-            return http.head(url.request_uri)['Content-Type'].start_with? 'image'
+        uri = URI(link)
+        res = Net::HTTP.get_response(uri)
+        puts res.code
+        if res.code == 403
+            return false
+        else
+            request = Net::HTTP.new uri.host
+            response= request.request_head uri.path
+            Net::HTTP.start(uri.host, uri.port) do |http|
+                return http.head(uri.request_uri)['Content-Type'].start_with? 'image'
+            end
         end
+
     end
 
 end

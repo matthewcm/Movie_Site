@@ -4,8 +4,6 @@
 <div><h1></h1></div>
 
 <% results = series_search(@series_name.gsub('+',' '), params[:sort_key] , 10)%>
-<%= puts results %>
-<% puts 'aplle' %>
 <% if results != false%>
     <% results.each_slice(4) do |slice| %>
     <% slice.each do |r| %>

@@ -4,7 +4,6 @@
 
 <% series_name_array = ['Game Of Thrones', 'Mr Robot', 'Agents of Shield', 'Silicon Valley', 'Breaking Bad'] %>
 <% results = [series_search('tt0944947'), series_search('tt4158110'),series_search('tt2575988') , series_search('tt2364582'), series_search('tt0903747')]%>
-<% puts results %>
 
 <% if results.include?(false) != true%>
     <% results = results.sort_by{|n| n[params[:sort_key]]} %>

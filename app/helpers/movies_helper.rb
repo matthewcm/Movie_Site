@@ -4,9 +4,6 @@ require "uri"
 module MoviesHelper
   def search(movies , sort_key = 'imdbID')
     movies = movies.to_s.gsub('"', ' ').gsub('<', ' ').gsub('>', ' ').gsub(';', ' ').gsub('/', ' ')
-    puts movies
-    puts 'test test '
-
     searcher = movie_service.search_movies(movies.to_s)
 
     if exists?(searcher.size) == true
@@ -63,20 +60,14 @@ end
 
   def exists? (movie)
     if movie == 2
-      puts 'is 2 jaffa'
       false
     else
-      puts 'not 2 jaffa'
       true
     end
   end
   def is_good_movie?(movie)
     movie = single_search(movie)
-    puts "============="
     puts movie["Title"]
-    puts movie["Type"]
-    puts movie["imdbRating"]
-    puts "============="
     ((movie["imdbRating"].to_i > 4) &&  (movie["Rated"] != 'N/A'))
   end
 
