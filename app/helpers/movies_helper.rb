@@ -23,8 +23,12 @@ module MoviesHelper
           puts movie_poster
           puts 'apricot'
          url = URI.parse(movie_poster)
+
+         http = Net::HTTP.new(url.host, url.port)
+         request = Net::HTTP::Get.new(uri.request_uri)
+         response = http.request(request)
          if movie_poster != 'N/A'
-         poster = "#{url.to_s}"
+         poster = "#{response.to_s}"
         else
           poster = 'noposter.jpg'
         end
