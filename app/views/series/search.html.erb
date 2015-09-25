@@ -11,7 +11,7 @@
     <% slice.each do |r| %>
     <% r = series_search(r['imdbID']) %>
     <div class = 'col-sm-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/series/"+(r["imdbID"]).to_s)%></h4>
-    <div style="height: 400px;"><%=  link_to(image_tag(single_poster(r['Poster']), :alt => "#{r['Title']} tv-series poster", :width => "200", :class =>"img-thumbnail"),  "/series/"+(r["imdbID"]).to_s) %> </div>
+    <div style="height: 400px;"><%=  link_to(image_tag(single_poster(r), :alt => "#{r['Title']} tv-series poster", :width => "200", :class =>"img-thumbnail"),  "/series/"+(r["imdbID"]).to_s) %> </div>
     </div>
     <% end %>
     <% end %>

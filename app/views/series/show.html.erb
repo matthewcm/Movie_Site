@@ -1,5 +1,5 @@
  <div class="container-fluid">
-     <div><%=image_tag(single_poster(@series['Poster']), :alt => "#{@series['Title']} tv-series poster", :width => "340", :align => 'right',:style => 'padding-left: 40px; padding-bottom: 40px')  %></div>
+     <div><%=image_tag(single_poster(@series), :alt => "#{@series['Title']} tv-series poster", :width => "340", :align => 'right',:style => 'padding-left: 40px; padding-bottom: 40px')  %></div>
 
     <h2 align 'left'><%= "#{@series["Title"]} ( #{@series['Year']} )" %></h2>
      <h2><%= ( "IMDB Rating : ( #{@series['imdbRating']} )") %></h2>

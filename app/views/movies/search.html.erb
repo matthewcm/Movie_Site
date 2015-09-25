@@ -11,7 +11,7 @@
     <% r = single_search(r) %>
     <div class = 'col-sm-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/movies/"+(r["imdbID"]).to_s)%></h4>
     <% puts image_tag((r['Poster']), :width => "200", :class =>"img-thumbnail") %>
-    <div style="height: 400px;"><%= link_to(image_tag(single_poster(r['Poster']), :alt => "#{r['Title']} movie poster",:width => "200", :class =>"img-thumbnail"),  "/movies/"+(r["imdbID"]).to_s) %> </div>
+    <div style="height: 400px;"><%= link_to(image_tag(single_poster(r), :alt => "#{r['Title']} movie poster",:width => "200", :class =>"img-thumbnail"),  "/movies/"+(r["imdbID"]).to_s) %> </div>
     </div>
     <% end %>
     <% end %>

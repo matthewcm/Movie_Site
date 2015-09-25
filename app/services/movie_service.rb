@@ -12,6 +12,7 @@ class MovieService
         movie_list = JSON.parse(res.body)
     end
 
+
     def single_movie(movie, idOn = false)
         url = URI.parse('http://www.omdbapi.com/')
         if idOn
