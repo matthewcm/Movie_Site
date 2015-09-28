@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'reviews/all' => 'reviews#index'
   get 'home/index'
+  get 'users/:id/change_password' => 'users#password'
   resources :movies
   resources :reviews ,path: 'movies/:id/reviews'
   resources :series

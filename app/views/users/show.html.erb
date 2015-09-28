@@ -2,10 +2,11 @@
 
 <table border = '2' class = 'table-bordered col-xs-2 pull-right'>
     <thread>
-    <tr><td><h4>Name:</h4></td><td><h4><%= @user.name %></h4></td></tr>
-    <tr><td><h4>Email:</h4></td><td><h4><%= @user.email %></h4></td></tr>
-    <tr>change password <%= render partial: 'password' %><tr>
+    <tr><td><h4>Name:</h4></td> <td><h4><%= @user.name %></h4></td></tr>
+    <tr><td><h4>Email:</h4></td> <td><h4><%= @user.email %></h4></td></tr>
+    <tr><td class="navbar-brand" href="<%" #{user_path(@user.id)}/change_password" %>" style = 'background:orange; color:black;' > Password</td> <td> <a class="navbar-brand" href="<%" #{user_path(@user.id)}/change_password" %>" style = 'background:orange; color:black;' >Change Password</a></td></tr>
     </thread>
 </table>
 
 <%= render partial: 'reviews'%>
+
