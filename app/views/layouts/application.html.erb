@@ -75,7 +75,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
 
-    <%if @current_user.level == 1 %>
+    <%if @current_user.level == 3 %>
         <p class="navbar-brand"><%=  ('Welcome Admin.'  if  @current_user != nil)%> <%= (link_to'......Not you?', logout_path, method: 'delete' if  @current_user != nil)%></p>
       <% else %>
 

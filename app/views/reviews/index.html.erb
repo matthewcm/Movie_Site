@@ -5,8 +5,6 @@
         <% review_of = single_search("#{review.movie_id}", true) %>
         <% puts image_tag(single_poster(review_of)) %>
 
-        <% puts pluralize(5, 'Person')%>
-
         <% if review_of['Type'] == 'movie' %>
             <% type = 'movies' %>
         <% else %>

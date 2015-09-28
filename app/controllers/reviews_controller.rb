@@ -1,12 +1,9 @@
 class ReviewsController < ApplicationController
+  before_action :ensure_log_in, only: [:create, :new]
   def index
   end
 
   def show
-    @review = @movies.reviews.find(params[:id])
-  end
-
-  def edit
     @review = @movies.reviews.find(params[:id])
   end
 
@@ -42,9 +39,10 @@ class ReviewsController < ApplicationController
     @movie_service = MovieService.new
     @movie_service.single_movie(params[:id].to_s, true)
   end
-   # def ensure_log_in
-   #      if logged_in? == false
-   #          redirect_to login_path
-   #      end
-   # end
+
+   def ensure_log_in
+        if logged_in? == false
+            redirect_to login_path
+        end
+   end
 end

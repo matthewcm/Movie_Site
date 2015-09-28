@@ -1,6 +1,11 @@
 <h3>Profile</h3>
 
-<table>
-    <tr><td>Name:</td><td><%= @user.name %></td></tr>
-    <tr><td>Email:</td><td><%= @user.email %></td></tr>
+<table border = '2' class = 'table-bordered col-xs-2 pull-right'>
+    <thread>
+    <tr><td><h4>Name:</h4></td><td><h4><%= @user.name %></h4></td></tr>
+    <tr><td><h4>Email:</h4></td><td><h4><%= @user.email %></h4></td></tr>
+    <tr>change password <%= render partial: 'password' %><tr>
+    </thread>
 </table>
+
+<%= render partial: 'reviews'%>

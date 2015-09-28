@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   resources :movies
   resources :reviews ,path: 'movies/:id/reviews'
   resources :series
-
-
   resources :users
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

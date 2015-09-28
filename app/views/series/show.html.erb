@@ -1,6 +1,6 @@
  <div class="container-fluid">
-     <div><%=image_tag(single_poster(@series), :alt => "#{@series['Title']} tv-series poster", :width => "340", :align => 'right',:style => 'padding-left: 40px; padding-bottom: 40px')  %></div>
-
+     <div class = 'col-xs-5 pull-right' align= 'right'><%=image_tag(single_poster(@series), :alt => "#{@series['Title']} tv-series poster", :width => "340", :class => 'img-responsive', :style => 'border: 2px solid #000000;') %></div>
+     <div style = 'margin-right: 20px' class= "col-xs-6 pull-left" align= 'left' >
     <h2 align 'left'><%= "#{@series["Title"]} ( #{@series['Year']} )" %></h2>
      <h2><%= ( "IMDB Rating : ( #{@series['imdbRating']} )") %></h2>
           <h2><%= (" Rated : (#{@series['Rated']} )") %></h2>
@@ -13,7 +13,7 @@
     <p/>
     <p style = 'padding-bottom:40px;'><%="Genre: #{@series['Genre']}"  %> </p>
 
-     <span align 'left'>
+     <span>
     <p style = 'padding-bottom:15px;'> Pilot Episode:  </p>
     <span> <%= @episodes['Released']%> :    </span>
     <span>  <%= @episodes['Title'] %> </span>
@@ -22,12 +22,14 @@
     <h1> </h1>
      </span>
      </div>
+     </div>
 
-    <div align 'right'>
-    <p><%= link_to("More information on IMDB site", "http://www.imdb.com/title/#{@series['imdbID'].to_s}/") %></p>
+    <div class = 'col-xs-3 pull-right'>
+    <p><%= link_to("More information on IMDB site", "http://www.imdb.com/title/#{@series['imdbID'].to_s}/") %>               </p>
     </div>
 
-    <h3><%="Reviews:"  %> </h3>
+    <div class = 'col-xs-12'><h3><%="Reviews:"  %> </h3>
     <%= link_to 'Add Review', new_review_path%>
     <%= render partial: '/movies/reviews', :locals => {:id => params[:id]} %>
+    </div>
 </div>
