@@ -22,18 +22,4 @@ class SeriesService
             http.request(req)}
         series_body = JSON.parse(res.body)
     end
-    def url_pass(link)
-        uri = URI(link)
-        res = Net::HTTP.get_response(uri)
-             puts res.code
-            puts 'RES CODE ^^^^^^'
-            res.code
-        request = Net::HTTP.new uri.host
-        response= request.request_head uri.path
-        Net::HTTP.start(uri.host, uri.port) do |http|
-            return http.head(uri.request_uri)['Content-Type'].start_with? 'image'
-        end
-
-    end
-
 end
