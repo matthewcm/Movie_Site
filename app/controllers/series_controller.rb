@@ -3,7 +3,7 @@ class SeriesController < ApplicationController
     @review_service = SeriesService.new
   end
   def search
-    @series_name = params[:q]
+    @series_name = params[:search]
   end
   def show
     @review = Review.new
