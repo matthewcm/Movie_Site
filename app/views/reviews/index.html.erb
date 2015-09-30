@@ -1,7 +1,7 @@
     <h3><%="Reviews:"  %> </h3>
 <% Review.all.reverse_each do |review| %>
 
-                <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2"  style ="height: 360;   margin-top: 30px; margin-bottom: 30px" >
+                <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2"  style ="height: 442;   margin-top: 30px; margin-bottom: 30px" >
                     <div style = "color:white; padding-left = 20px; margin-botton:50px;"align= 'center' >
                     <p style = 'width=10px'><%= review.body.strip.truncate(11) %></p>
                     <% review_of = single_search("#{review.movie_id}", true) %>
@@ -10,7 +10,7 @@
                     <% else %>
                       <% type = 'series' %>
                     <% end %>
-                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive' ,:width => '80%') , "/#{type}/#{review_of['imdbID']}")%></div>
+                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive' , :height =>"height: 442", :width => '80%') , "/#{type}/#{review_of['imdbID']}")%></div>
 
                         <% if current_user != nil %>
                             <% if current_user.level == 3 %>
