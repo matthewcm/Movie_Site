@@ -17,10 +17,7 @@ module SeriesHelper
           false
         end
     end
-
-
     end
-
   def episode_search(series)
     @series = series_service.single_episode(series)
  end
@@ -28,7 +25,6 @@ module SeriesHelper
 
   def is_good_series?(series)
     series = series_service.single_series(series)
-    puts series["Title"]
     ((series["imdbRating"].to_i > 1) &&  (series["Plot"] != 'N/A'))
   end
 

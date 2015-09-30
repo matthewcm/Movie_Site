@@ -2,16 +2,10 @@ class SeriesController < ApplicationController
   def index
     @review_service = SeriesService.new
   end
-  def search
-    @series_name = params[:search]
-  end
   def show
     @review = Review.new
     @episodes = singleEpisode
     @series = searchSeries
-    puts @series
-    puts 'escuses'
-    @series
   end
   def destroy
     review = Review.find(params[:id])

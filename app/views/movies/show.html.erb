@@ -19,12 +19,9 @@
     </div>
 </div>
 
-    <div class = 'col-xs-3 pull-right' align = 'center'>
-
-    </div>
-
+    <div class = 'col-xs-3 pull-right' align = 'center'></div>
     <div class = 'col-xs-12'>
-    <h3><%="Reviews:"  %> </h3>
-    <%= link_to 'Add Review', new_review_path%>
-    <%= render partial: 'reviews', :locals => {:id => params[:id]} %>
+        <h3><%="Reviews:"  %> </h3>
+        <%= link_to 'Add Review', new_review_path%>
+        <%= render partial: 'reviews', :locals => {:id => params[:id]} %>
     </div>

@@ -39,14 +39,13 @@ class UsersController < ApplicationController
     end
     def ensure_admin
         if current_user.level == 3
-            puts 'Hello Admin'
         else
+             flash[:success] =  'You are not an Admin User'
             redirect_to user_path(current_user.id)
         end
     end
     def ensure_user
         if current_user.id == params[:id].to_i || current_user.level == 3
-            puts "Hello #{current_user.name}"
         else
             redirect_to user_path(current_user.id)
         end

@@ -23,11 +23,17 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href='/movies'>Movies</a>
-      <a  class="navbar-brand" href="/series">Series    </a>
-      <a  class="navbar-brand" href="/series"> </a>
+      <a  class="navbar-brand" href="/series">Series</a>
+      <a  class="navbar-brand" style= "margin-left:20px" href="/reviews/all"> All Reviews</a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left" action="/search" style = "margin-left:120px"accept-charset="UTF-8" method="get">
+      <div class="form-group">
+        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
+      </div>
+        <button type="submit" name="commit" class="btn btn-warning"> Search </button>
+      </form>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false"> Filters <span class="caret"></span></a>
@@ -38,28 +44,11 @@
           </ul>
       </ul>
 
-
-      <form class="navbar-form navbar-left" action="/search" accept-charset="UTF-8" method="get">
-      <div class="form-group">
-        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
-      </div>
-        <button type="submit" name="commit" class="btn btn-warning"> Movies </button>
-      </form>
-        <form class="navbar-form navbar-left" action="/search_series" accept-charset="UTF-8" method="get">
-      <div class="form-group">
-        <input type="text" name="search" id="search" class="form-control" placeholder="Search">
-      </div>
-        <button type="submit" name="commit" class="btn btn-info"> Series </button>
-      </form>
-      <a  class="navbar-brand" href="/reviews/all">Reviews</a>
       <div class=" navbar-form navbar-right">
             <% if logged_in? %>
                     <a class="navbar-brand" data-method='delete' href='/logout' %>Log out</a>
                   <div class="navbar-brand">|</div>
                     <a class="navbar-brand" href='<%= user_path(current_user) %>' >Profile</a>
-
-
-
             <% else %>
                 <a class="navbar-brand" href='/login'>Log In</a>
                 <div class="navbar-brand">|</div>

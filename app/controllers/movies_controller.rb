@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
     @movie_service = MovieService.new
   end
   def search
-    @movie_name = params[:search]
+    @name = params[:search]
   end
   def show
     @review = Review.new

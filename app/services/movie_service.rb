@@ -38,7 +38,5 @@ class MovieService
                 return http.head(uri.request_uri)['Content-Type'].start_with? 'image'
             end
         end
-
     end
-
 end
