@@ -1,30 +1,24 @@
-
+<div>
 <% if  Review.where(movie_id: "#{id}") == nil %>
 <% else %>
-<% reviews = Review.where(movie_id: "#{id}") %>
-<% reviews.reverse_each do |review| %>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <%= review.title %>
+    <% reviews = Review.where(movie_id: "#{id}") %>
+    <% reviews.reverse_each do |review| %>
+            <div class="panel panel-default">
+                <div class="panel-heading"><%= review.title %></div>
+                <div class="panel-body"><%= review.body%></div>
+                <div class="panel-heading">
+                      <footer>
+                            <span><%= "Created: #{format_review_date(review)}" %></span>
+                            <% if current_user != nil %>
+                                <% if current_user.level == 3 %>
+                                        <span>   |   <%= link_to "Delete Review", review_path(params[:id] , review), method: :delete, data: {confirm: "Are you sure you want to delete this review? "} %> </span>
+                                <% end %>
+                            <% end %>
+                      </footer>
+                </div>
             </div>
-            <div class="panel-body">
-                <%= review.body%>
-            </div>
-            <div class="panel-heading">
-                  <footer>
-                        <span><%= "Created: #{format_review_date(review)}" %></span>
-                        <% if current_user != nil %>
-                        <% if current_user.level == 3 %>
-                        <span>   |   <%= link_to "Delete Review", review_path(params[:id] , review), method: :delete, data: {confirm: "Are you sure you want to delete this review? "} %> </span>
-                        <% end %>
-                        <% end %>
-                  </footer>
-            </div>
-
-        </div>
-<%end%>
+    <%end%>
 <% end %>
-
-
+</div>
 
 
