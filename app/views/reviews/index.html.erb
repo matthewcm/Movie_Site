@@ -1,7 +1,7 @@
     <h3><%="Reviews:"  %> </h3>
 <% Review.all.reverse_each do |review| %>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2"  style ="height: 300px;" >
-                    <div style = "background:white; color:black; padding-left = 20px;"align= 'center' >
+                <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2"  style ="height: 350;" >
+                    <div style = "color:white; padding-left = 20px;"align= 'center' >
                     <p style = 'width=10px'><%= review.body.strip.truncate(20) %></p>
                     <% review_of = single_search("#{review.movie_id}", true) %>
                     <% if review_of['Type'] == 'movie' %>
@@ -9,7 +9,7 @@
                     <% else %>
                       <% type = 'series' %>
                     <% end %>
-                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive') , "/#{type}/#{review_of['imdbID']}")%></div>
+                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive' , :width => '80%') , "/#{type}/#{review_of['imdbID']}")%></div>
 
                     <!-- One of my proudest moments
                     <% if false %>
