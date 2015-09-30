@@ -1,3 +1,4 @@
+ <div class = "container" >
  <div class = 'col-xs-5 pull-right' align= 'right'>
             <%=image_tag(single_poster(@movie), :alt => "#{@movie['Title']} movie poster",:width => "340", :class => 'img-responsive', :style => 'border: 1px solid #000000;')  %>
             <p align= 'center'><%= link_to("More information on IMDB site", "http://www.imdb.com/title/#{@movie['imdbID'].to_s}/", :target=>"_blank")%> </p>

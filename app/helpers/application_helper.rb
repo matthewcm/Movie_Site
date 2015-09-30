@@ -27,13 +27,5 @@ module ApplicationHelper
     #       end
     #     poster
     # end
-  def single_poster(poster)
-         if poster != 'N/A'
-            poster = movie['Poster']
-         poster = "#{poster.to_s}"
-        else
-          poster = 'noposter.jpg'
-        end
-        poster
-  end
+
 end
