@@ -4,7 +4,7 @@
     <thread>
     <tr><td><h4>Name:</h4></td> <td><h4><%= @user.name %></h4></td></tr>
     <tr><td><h4>Email:</h4></td> <td><h4><%= @user.email %></h4></td></tr>
-    <tr><td class="navbar-brand" href="<%" #{user_path(@user.id)}/change_password" %>" style = 'background:orange; color:black;' > Password <p></p></td> <td><div style = 'background:orange; color:black;' class="navbar-brand"> <a   href='<%="#{user_path(@user.id)}/change_password"%>' >Change Password</a><p></p></div></td></tr>
+    <tr><td><h4 href="<%" #{user_path(@user.id)}/change_password" %>" >Password:</h4></td> <td><div  class="navbar-brand"> <a   href='<%="#{user_path(@user.id)}/change_password"%>' >Change Password</a><p></p></div></td></tr>
     </thread>
 </table>
 <h1></h1>
