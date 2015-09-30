@@ -16,35 +16,3 @@
 
 <p>No movies exist with that name... Soz </p>
 <% end  %>
-
-<!--
-<% if false %>
-
-
-
-
-
-<li>Batman</li>
-<% results = search("batman")%>
-<ul>
-  <% results.each do |r| %>
-    <% r = single_search(r) %>
-    <li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
-    <%=image_tag("#{r["Poster"]}", :size => "50")  %>
-    <% end %>
-</ul>
-
-<li>Spiderman</li>
-<%results = search("Spider-Man")%>
-<ul>
-  <% results.each do |r| %>
-    <% r = single_search(r) %>
-    <li><%= link_to("#{r["Title"]} ( #{r["Year"]} )", "/movies/"+(r["imdbID"]).to_s)%> </li>
-    <%=image_tag("#{r["Poster"]}", :size => "50")  %>
-    <% end %>
-</ul>
-<% end %>
--->
-<% if false %>
-
-<% end %>
