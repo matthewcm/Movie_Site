@@ -26,9 +26,6 @@ gem "nprogress-rails"
 
 #password encryption
 gem 'bcrypt', '~> 3.1.7'
-gem 'fastimage'
-
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
