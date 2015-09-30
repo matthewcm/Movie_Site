@@ -12,9 +12,12 @@ class UsersController < ApplicationController
     end
     def update
         @user = User.find(params[:id])
-        @user.update(user_params)
-        flash[:notice] = "The password was updated. "
-        redirect_to user_path(@user)
+        if (@user.update(user_params))
+            flash[:success] = "The password was updated. "
+            redirect_to user_path(@user)
+        else
+            render :new
+        end
     end
     def create
         @user = User.new(user_params)
