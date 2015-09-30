@@ -1,16 +1,16 @@
     <h3><%="Reviews:"  %> </h3>
 <% Review.all.reverse_each do |review| %>
-
-                <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2"  style ="height: 442;   margin-top: 30px; margin-bottom: 30px" >
+                    <% review_of = single_search("#{review.movie_id}", true) %>
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"  style = "height: 320px" >
                     <div style = "color:white; padding-left = 20px; margin-botton:50px;"align= 'center' >
                     <p style = 'width=10px'><%= review.body.strip.truncate(11) %></p>
-                    <% review_of = single_search("#{review.movie_id}", true) %>
+
                     <% if review_of['Type'] == 'movie' %>
                         <% type = 'movies' %>
                     <% else %>
                       <% type = 'series' %>
                     <% end %>
-                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive' , :height =>"height: 442", :width => '80%') , "/#{type}/#{review_of['imdbID']}")%></div>
+                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive' , :height => '60%' ,:style => "min-height:200px; min-width:135px; max-height:260px; " ) , "/#{type}/#{review_of['imdbID']}")%></div>
 
                         <% if current_user != nil %>
                             <% if current_user.level == 3 %>

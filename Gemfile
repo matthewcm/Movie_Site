@@ -26,6 +26,7 @@ gem "nprogress-rails"
 
 #password encryption
 gem 'bcrypt', '~> 3.1.7'
+gem 'fastimage'
 
 
 
