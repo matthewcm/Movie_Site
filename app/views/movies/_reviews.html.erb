@@ -12,7 +12,6 @@
             </div>
             <div class="panel-heading">
                   <footer>
-                        <span><%= review.id%></span>
                         <span><%= "Created: #{format_review_date(review)}" %></span>
                         <% if current_user != nil %>
                         <% if current_user.level == 3 %>

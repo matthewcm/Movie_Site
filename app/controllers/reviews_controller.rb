@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:id])
   end
   def review_params
-    params.require(:review).permit(:body, :title, :movie_id)
+    params.require(:review).permit(:body, :title, :movie_id, :user_id)
   end
   def singleMovie
     @movie_service = MovieService.new

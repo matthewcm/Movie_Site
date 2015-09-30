@@ -1,42 +1,36 @@
 <% if current_user != nil %>
-<% if  Review.where(title: "#{current_user.name}").size == 0 %>
+<% if  Review.where(user_id: "#{current_user.id}").size == 0 %>
 <div class = 'col-xs-2'>
 <p> Sorry no reviews are found :(</p>
 <p> Go , and start reviewing!</p>
 </div>
 <% else %>
-<% reviews = Review.where(title: "#{current_user.name}") %>
+<% reviews = Review.where(user_id: "#{current_user.id}") %>
 <% reviews.reverse_each do |review| %>
-                <div class="panel panel-default container-fluid col-xs-4">
-                <p><%= review.body %></p>
-                <% review_of = single_search("#{review.movie_id}", true) %>
-                <% puts image_tag(single_poster(review_of)) %>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2" >
+                    <div style = "background:white; color:black; padding-left = 20px;"align= 'center' >
+                    <p style = 'width=10px'><%= review.body.strip %></p>
+                    <% review_of = single_search("#{review.movie_id}", true) %>
+                    <% if review_of['Type'] == 'movie' %>
+                        <% type = 'movies' %>
+                    <% else %>
+                      <% type = 'series' %>
+                    <% end %>
+                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive') , "/#{type}/#{review_of['imdbID']}")%></div>
 
-                <% puts pluralize(5, 'Person')%>
-
-                <% if review_of['Type'] == 'movie' %>
-                    <% type = 'movies' %>
-                <% else %>
-                  <% type = 'series' %>
-                <% end %>
-                 <p><%= link_to(image_tag(review_of['Poster']) , "/#{type}/#{review_of['imdbID']}")%></p>
-                <h1></h1>
-
-                <!-- One of my proudest moments
-                <% if false %>
-                <p><%= link_to(image_tag(review_of['Poster']) , "/#{(review_of['Type']).pluralize(2)}/#{review_of['imdbID']}")%></p>
-                <% end %> -->
+                    <!-- One of my proudest moments
+                    <% if false %>
+                    <p><%= link_to(image_tag(review_of['Poster']) , "/#{(review_of['Type']).pluralize(2)}/#{review_of['imdbID']}")%></p>
+                    <% end %> -->
 
                         <% if current_user != nil %>
-                        <% if current_user.level == 3 %>
-                        <span> <%= link_to "Delete Review", review_path(params[:id] , review), method: :delete, data: {confirm: "Are you sure you want to delete this review? "} %> </span>
+                            <% if current_user.level == 3 %>
+                                <div style = 'width=10px'> <%= link_to "Delete Review", review_path(params[:id] , review), method: :delete, data: {confirm: "Are you sure you want to delete this review? "} %> </div>
+                            <% end %>
                         <% end %>
-                        <% end %>
-                  </footer>
-                </div>
+                    </div>
+                  </div>
 
-                </div>
-                </div>
 <%end%>
 <% end %>
 <% end %>

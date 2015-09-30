@@ -54,16 +54,16 @@
       <a  class="navbar-brand" href="/reviews/all">Reviews</a>
       <div class=" navbar-form navbar-right">
             <% if logged_in? %>
-                 <span><a class="navbar-brand" data-method='delete' href='/logout' %>Log out</a></span>
-                  <span class="navbar-brand">|</span>
-                <span><a class="navbar-brand" href='<%= user_path(current_user) %>' >Profile</a></span>
+                    <a class="navbar-brand" data-method='delete' href='/logout' %>Log out</a>
+                  <div class="navbar-brand">|</div>
+                    <a class="navbar-brand" href='<%= user_path(current_user) %>' >Profile</a>
 
 
 
             <% else %>
-                <span> <a class="navbar-brand" href='/login'>Log In</a> </span>
-                <span class="navbar-brand">|</span>
-                <span><a class="navbar-brand" href= '/users/new'>Sign up</a></span>
+                <a class="navbar-brand" href='/login'>Log In</a>
+                <div class="navbar-brand">|</div>
+                <a class="navbar-brand" href= '/users/new'>Sign up</a>
             <% end %>
         </div>
     </div>
