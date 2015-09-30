@@ -1,7 +1,7 @@
 #Presentation demo
 
-*explain high level architecture ( api )
-*any gems or Javascript Plugins
+* explain high level architecture ( api )
+* any gems or Javascript Plugins
 * Show any responsive screens + mobile first
 * deploy to Heroku (done )
 * Show github repo
