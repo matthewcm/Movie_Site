@@ -2,7 +2,7 @@
 <% Review.all.reverse_each do |review| %>
                     <% review_of = single_search("#{review.movie_id}", true) %>
                 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"  style = "height: 320px" >
-                    <div style = "color:white; padding-left = 20px; margin-botton:50px;"align= 'center' >
+                    <div style = "padding-left = 20px; margin-botton:50px;"align= 'center' >
                     <p style = 'width=10px'><%= review.body.strip.truncate(11) %></p>
 
                     <% if review_of['Type'] == 'movie' %>

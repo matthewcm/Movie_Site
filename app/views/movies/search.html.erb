@@ -7,16 +7,16 @@
         <h3 class = "col-xs-12"> Movies </h3>
         <% movies_results.each do |r| %>
         <% r = single_search(r) %>
-        <div class = 'col-xs-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/movies/"+(r["imdbID"]).to_s)%></h4>
-        <div style="height: 400px;"><%= link_to(image_tag(single_poster(r), :alt => "#{r['Title']} movie poster",:width => "200", :class =>"thumbnail"),  "/movies/"+(r["imdbID"]).to_s) %> </div>
+        <div class = 'col-xs-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(23), "/movies/"+(r["imdbID"]).to_s)%></h4>
+        <div style="height: 350px;"><%= link_to(image_tag(single_poster(r), :alt => "#{r['Title']} movie poster",:width => "200", :class =>"thumbnail"),  "/movies/"+(r["imdbID"]).to_s) %> </div>
         </div>
     <% end %>
     <h3 class = "col-xs-12"> Series </h3>
     <% series_results.each do |r| %>
 
         <% r = series_search(r['imdbID']) %>
-        <div class = 'col-xs-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(30), "/series/"+(r["imdbID"]).to_s)%></h4>
-        <div style="height: 400px;"><%=  link_to(image_tag(single_poster(r), :alt => "#{r['Title']} tv-series poster", :width => "200", :class =>"thumbnail"),  "/series/"+(r["imdbID"]).to_s) %> </div>
+        <div class = 'col-xs-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(23), "/series/"+(r["imdbID"]).to_s)%></h4>
+        <div style="height: 350px;"><%=  link_to(image_tag(single_poster(r), :alt => "#{r['Title']} tv-series poster", :width => "200", :class =>"thumbnail"),  "/series/"+(r["imdbID"]).to_s) %> </div>
         </div>
     <% end %>
 

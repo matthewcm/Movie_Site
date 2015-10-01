@@ -19,7 +19,7 @@ module MoviesHelper
     @movie = movie_service.single_movie(movie, idOn)
  end
    def single_poster(poster)
-        poster = poster['Poster']
+        poster = movie_service.omdb_poster(poster) || poster['Poster']
          if poster != 'N/A'
          poster = "#{poster.to_s}"
         else

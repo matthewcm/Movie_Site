@@ -14,7 +14,7 @@
 <% end %>
 <% reviews.reverse_each do |review| %>
                 <div class="clearfix col-xs-12 col-sm-6 col-md-4 col-lg-2"  >
-                    <div style = "background:white; color:black; padding-left = 20px;"align= 'center' >
+                    <div style = "padding-left = 20px;"align= 'center' >
                     <% review_of = single_search("#{review.movie_id}", true) %>
                     <% if review_of['Type'] == 'movie' %>
                         <% type = 'movies' %>
