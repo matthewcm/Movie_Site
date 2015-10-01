@@ -1,5 +1,5 @@
 <div><h1></h1></div>
-<div><li><h4>Search term was : <%= @name.gsub('+',' ') %></h4></li></div>
+<div><h4>Search term was : <%= @name.gsub('+',' ') %></h4></div>
 <div><h1></h1></div>
 <% movies_results = search(@name.gsub('+',' '), params[:sort_key])%>
 <% series_results = series_search(@name.gsub('+',' '), params[:sort_key] , 10)%>
