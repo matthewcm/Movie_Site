@@ -21,7 +21,7 @@
                     <% else %>
                       <% type = 'series' %>
                     <% end %>
-                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive thumbnail') , "/#{type}/#{review_of['imdbID']}")%></div>
+                     <div align= 'center' ><%= link_to(image_tag(single_poster(review_of), :class => 'img-responsive thumbnail') , "/#{type}/#{review_of['imdbID']}")%></div>
 
                     <!-- One of my proudest moments
                     <% if false %>

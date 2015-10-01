@@ -10,7 +10,7 @@
                     <% else %>
                       <% type = 'series' %>
                     <% end %>
-                     <div align= 'center' ><%= link_to(image_tag(review_of['Poster'] , :class => 'img-responsive' , :height => '60%' ,:style => "min-height:200px; min-width:135px; max-height:260px; " ) , "/#{type}/#{review_of['imdbID']}")%></div>
+                     <div align= 'center' ><%= link_to(image_tag(single_poster(review_of), :class => 'img-responsive' , :height => '60%' ,:style => "min-height:200px; min-width:135px; max-height:260px; " ) , "/#{type}/#{review_of['imdbID']}")%></div>
 
                         <% if current_user != nil %>
                             <% if current_user.level == 3 %>
