@@ -14,7 +14,7 @@
 * What is next - V2
 * Upcoming features that I want to include.
 
-![ScreenShot](erd.pdf)
+![ScreenShot](erd.png)
 Code goes into server (On my poster)
 
 
