@@ -3,13 +3,12 @@
 <h3>These are the featured movies: </h3>
 
 <% results = [single_search('tt0316654', true), single_search('tt0478970', true),single_search('tt0848228', true) ,single_search('tt0092086', true), single_search('tt0113243', true), single_search('tt3416742', true)]%>
-
 <% if results != false%>
     <% results = results.sort_by{|n| n[params[:sort_key]]} %>
     <% results.each do |r| %>
     <% r = single_search(r) %>
     <div class = 'col-xs-6 col-lg-4'><h4><%= link_to("#{r["Title"]} ( #{r["Year"]} )".truncate(23), "/movies/"+(r["imdbID"]).to_s)%></h4>
-    <div style="height: 350px;"><%= link_to(image_tag(r['Poster'], :alt => "#{r['Title']} movie poster",:width => "200", :class =>"thumbnail"),  "/movies/"+(r["imdbID"]).to_s) %> </div>
+    <div style="height: 350px;"><%= link_to(image_tag(single_poster(r, true), :alt => "#{r['Title']} movie poster",:width => "200", :class =>"thumbnail"),  "/movies/"+(r["imdbID"]).to_s) %> </div>
     </div>
     <% end %>
 <% else %>

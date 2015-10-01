@@ -18,14 +18,24 @@ module MoviesHelper
   def single_search(movie , idOn = false)
     @movie = movie_service.single_movie(movie, idOn)
  end
-   def single_poster(poster)
-        poster = movie_service.omdb_poster(poster) || poster['Poster']
-         if poster != 'N/A'
-         poster = "#{poster.to_s}"
-        else
-          poster = 'noposter.jpg'
+   def single_poster(poster, no_check=false, mac = false)
+      if mac == true
+        poster = poster["Poster"]
+          if poster != 'N/A'
+           poster = "#{poster.to_s}"
+          else
+            poster = 'noposter.jpg'
+          end
+          poster
+      else
+          poster = movie_service.omdb_poster(poster, no_check)
+           if poster != 'N/A'
+           poster = "#{poster.to_s}"
+          else
+            poster = 'noposter.jpg'
+          end
+          poster
         end
-        poster
   end
   private
 

@@ -25,15 +25,19 @@ class MovieService
             http.request(req)}
         movie_body = JSON.parse(res.body)
     end
-    def omdb_poster(movie)
+    def omdb_poster(movie, no_check)
         url = URI.parse('http://img.omdbapi.com/')
         searcher = "?i=#{movie['imdbID']}"
         puts "#{url.to_s}#{searcher}"
         poster_url ="#{url.to_s}#{searcher}&apikey=40584c09&plot=full"
-        if url_pass('http://ia.media-imdb.com/images/M/MV5BMTE0Mjc1MTk2MjFeQTJeQWpwZ15BbWU4MDk2NzI4MDYx') == true
+        if no_check == true
             poster_url
         else
-            "N/A"
+            if url_pass(poster_url) == true
+                poster_url
+            else
+                "N/A"
+            end
         end
     end
     def url_pass(link)
