@@ -4,16 +4,16 @@
         <div class = 'modal-content'>
             <div class="modal-header">
                 <h4 class="modal-title">
-                                      <% if @review.errors.any? %>
-                                        <p>The form contains <%= pluralize(@review.errors.count, "error") %> </p>
-                                        <ul>
-                                        <% @review.errors.full_messages.each do | message | %>
-                                            <li><%= message %></li>
-                                        <% end %>
-                                        </ul>
-                                    <% end %>
+                      <% if @review.errors.any? %>
+                        <p>The form contains <%= pluralize(@review.errors.count, "error") %> </p>
+                        <ul>
+                        <% @review.errors.full_messages.each do | message | %>
+                            <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                    <% end %>
                  <p ><%= f.label 'Username:'%></p>
-                 <p><%= f.text_area :title , cols:30, rows: 1 %></p>
+                 <p><%= f.text_area :title , cols:30, rows: 1 , :value => user_name, :readonly => true %></p>
                 </h4>
             </div>
             <div class="modal-body">
@@ -28,7 +28,7 @@
                 <%= f.hidden_field :movie_id, cols: 10, rows: 1 ,:value => id ,:readonly => true %>
             </div>
             <div class="modal-title">
-                <%= f.hidden_field :user_id, cols: 10, rows: 1 ,:value => user_id ,:readonly => true %>
+                <%= f.hidden_field :user_id, cols: 10, rows: 1 , :value => user_id ,:readonly => true %>
             </div>
                 <%=  link_to "Close", movie_path(params[:id]) , :class => 'btn btn-default' %>
                 <p><%= f.submit nil, :class => "btn btn-success" %></p>
