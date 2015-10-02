@@ -15,7 +15,8 @@
 
         <% end %>
     <% else  %>
-    <div class= "col-xs-12"> <%= image_tag("dog.gif", :class => 'img-rounded img-thumbnail') %></div>
+     <div class= "col-xs-12">  No Movies with that name </div>
+    <div class= "col-xs-12"> <%= image_tag("sHvEPkW.gif", :class => 'img-rounded thumbnail img-responsive') %></div>
     <% end %>
     <h3 class = "col-xs-12"> Series </h3>
        <% if series_results != false %>
@@ -28,7 +29,8 @@
         </div>
     <% end %>
         <% else  %>
-        <div class= "col-xs-12"><%= image_tag("dog.gif", :class => 'img-rounded img-thumbnail') %></div>
+             <div class= "col-xs-12">  No Series with that name </div>
+        <div class= "col-xs-12"><%= image_tag("no_series.gif", :class => 'img-rounded img-thumbnail') %></div>
     <% end %>
 
 <% else %>
