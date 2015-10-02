@@ -3,13 +3,13 @@ module SeriesHelper
     series = series.to_s.gsub('"', ' ').gsub('<', ' ').gsub('>', ' ').gsub(';', ' ').gsub('/', ' ')
     searcher = series_service.single_series(series, how_many)
     if how_many == 1
-        if exists?(searcher.size) == true
+        if exists?(searcher) == true
               searcher = searcher
         else
           false
         end
     else
-          if exists?(searcher.size) == true
+          if exists?(searcher) == true
               searcher = searcher["Search"]
               searcher = searcher.uniq{|m| m["imdbID"]}
               searcher = searcher.sort_by{|n| n["#{sort_key}"]}

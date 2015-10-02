@@ -5,10 +5,13 @@ class MovieService
         url = URI.parse('http://www.omdbapi.com/')
         movies = movies.to_s.gsub(' ', '+')
         searcher = "?s=#{movies}&apikey=40584c09&type=movie"
+        puts url+searcher
         req = Net::HTTP::Get.new("#{url.to_s}#{searcher}")
         res = Net::HTTP.start(url.host, url.port){|http|
             http.request(req)}
         movie_list = JSON.parse(res.body)
+        puts movie_list
+        movie_list
     end
 
 
@@ -28,7 +31,6 @@ class MovieService
     def omdb_poster(movie, no_check)
         url = URI.parse('http://img.omdbapi.com/')
         searcher = "?i=#{movie['imdbID']}"
-        puts "#{url.to_s}#{searcher}"
         poster_url ="#{url.to_s}#{searcher}&apikey=40584c09&plot=full"
         if no_check == true
             poster_url

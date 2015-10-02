@@ -5,7 +5,7 @@ module MoviesHelper
   def search(movies , sort_key = 'imdbID')
     movies = movies.to_s.gsub('"', ' ').gsub('<', ' ').gsub('>', ' ').gsub(';', ' ').gsub('/', ' ')
     searcher = movie_service.search_movies(movies.to_s)
-    if exists?(searcher.size) == true
+    if exists?(searcher) == true
          searcher = searcher["Search"]
           searcher = searcher.uniq{|m| m["imdbID"]}
           searcher = searcher.sort_by{|n| n["#{sort_key}"]}
@@ -39,8 +39,10 @@ module MoviesHelper
   end
   private
 
-  def exists? (movie)
-    if movie == 2
+  def exists? (search)
+    puts search.size
+    puts 'Banana'
+    if search.size == 2
       false
     else
       true
