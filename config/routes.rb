@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'movies#index'
 
+    get '/404' => 'errors#not_found'
+    get '/422' => 'errors#internal_error'
+    get '/500' => 'errors#unprocessable_entity'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
