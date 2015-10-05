@@ -36,6 +36,7 @@ module Matts_Movies
                                  "fontawesome-webfont.svg",
                                  "fontawesome-webfont.woff")
     config.assets.paths << Rails.root.join('vendor', 'assets')
+    config.exceptions_app = self.routes
 
   end
 end
