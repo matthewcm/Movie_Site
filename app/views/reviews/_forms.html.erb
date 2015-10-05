@@ -1,4 +1,22 @@
+<script>
+$(document).ready(function(){
+    $("#button").click(function(){
+        $("#reviewDiv").toggle(1000);
+    });
+});
+</script>
+
+
+<div class = 'col-xs-12 navbar-brand' style = 'background:orange; color:black; ' role = 'button' id="button">Open/Close New Review</div>
+
+
   <%= form_for @review do |f| %>
+  <div class = "row">
+  <% if @validatings == true %>
+    <div class = "col-xs-12" id = "reviewDiv">
+  <% else %>
+    <div class = "col-xs-12" id = "reviewDiv" style = "display:none;">
+    <% end %>
   <!-- <div class = "modal" > -->
    <div class = "modal-dialog" >
         <div class = 'modal-content'>
@@ -30,11 +48,13 @@
             <div class="modal-title">
                 <%= f.hidden_field :user_id, cols: 10, rows: 1 , :value => user_id ,:readonly => true %>
             </div>
-                <%=  link_to "Close", movie_path(params[:id]) , :class => 'btn btn-default' %>
-                <p><%= f.submit nil, :class => "btn btn-success" %></p>
+                 <span><%=  link_to "Close", movie_path(params[:id]) , :class => 'btn btn-default' %></span>
+                <span><%= f.submit nil, :class => "btn btn-success" %></span>
             </div>
         </div>
     </div>
+</div>
+</div>
 
     <% end %>
 

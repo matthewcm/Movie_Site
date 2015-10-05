@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = @movies.reviews.find(params[:id])
+    @movie_service = MovieService.new
+    @movie_service.single_movie(params[:id].to_s, true)
   end
 
   def new
@@ -13,12 +14,13 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @movie = singleMovie
+    @validatings = true
     #@review.omdb_id = MoviesController.movie['imdbID']
-
       if (@review.save)
         redirect_to movie_path(@review.movie_id)
     else
-      render :new
+      render  "/movies/show"
     end
   end
   def destroy
