@@ -17,12 +17,11 @@ class MovieService
 
 
     def single_movie(movie, idOn = false)
-        movie.strip!
         url = URI.parse('http://www.omdbapi.com/')
         if idOn
-            searcher = "?i=#{movie}"
+            searcher = "?i=#{movie.strip}"
         else
-            searcher = "?i=#{movie['imdbID']}"
+            searcher = "?i=#{movie['imdbID'].strip}"
         end
         #puts "#{url.to_s}#{searcher}"
         req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09&plot=full")
