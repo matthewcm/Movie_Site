@@ -1,6 +1,7 @@
 class SeriesService
 
     def single_series(series , how_many = 1)
+        series.strip!
         url = URI.parse('http://www.omdbapi.com/')
         if how_many == 1
             searcher = "?i=#{series}&apikey=40584c09"
@@ -17,6 +18,7 @@ class SeriesService
         series_list
     end
     def single_episode(series , season = '1',  episode ='1')
+        series.strip!
         url = URI.parse('http://www.omdbapi.com/')
         series = series.gsub(' ', '+')
         searcher = "?t=#{series}&Season=#{season}&Episode=#{episode}"
