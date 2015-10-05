@@ -1,5 +1,5 @@
 class ErrorsController < ApplicationController
-    layout 'error'
+    layout 'application'
 
   def not_found
   end
