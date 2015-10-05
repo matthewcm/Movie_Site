@@ -1,12 +1,12 @@
 <h3> Reviewed Movies / TV Series </h3>
 <% if current_user != nil %>
-<% if  Review.where(user_id: "#{current_user.id}").size == 0 %>
+<% if  Review.where(user_id: params[:id]).size == 0 %>
 <div class = 'col-xs-2'>
 <p> Sorry no reviews are found :(</p>
 <p> Go , and start reviewing!</p>
 </div>
 <% else %>
-<% reviews = Review.where(user_id: "#{current_user.id}") %>
+<% reviews = Review.where(user_id: "#{params[:id]}") %>
 <% uniq_id = reviews.map{|m| m['movie_id']}.uniq %>
 <% reviews = [] %>
 <% uniq_id.each do |id| %>
