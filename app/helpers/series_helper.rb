@@ -19,8 +19,16 @@ module SeriesHelper
     end
     end
   def episode_search(series)
-    @series = series_service.single_episode(series)
+    @series = series_service.single_episode(series, 1)
  end
+ def series_episodes_search(series, season=1)
+      puts 'Juji'
+      puts series
+      @episodes = series_service.series_episodes(series, season)
+
+  end
+
+
   private
 
   def is_good_series?(series)

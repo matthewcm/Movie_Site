@@ -6,6 +6,7 @@ class SeriesController < ApplicationController
     @review = Review.new
     @episodes = singleEpisode
     @series = searchSeries
+    @season_num = params[:data_value]
   end
   def destroy
     review = Review.find(params[:id])
@@ -20,6 +21,10 @@ class SeriesController < ApplicationController
   def searchSeries
         @series_service = SeriesService.new
         @series_service.single_series(params[:id].to_s, 1)
+  end
+  def seriesEpisodes
+    @series_service = SeriesService.new
+    @series_service.series_episodes(searchSeries['Title'].to_s, 1)
   end
 end
 

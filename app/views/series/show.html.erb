@@ -14,11 +14,37 @@
                 <p style = 'padding-bottom:40px;'><%="Genre: #{@series['Genre']}"  %> </p>
 
                  <span>
-                <p style = 'padding-bottom:15px;'> Pilot Episode:  </p>
-                <span> <%= @episodes['Released']%> :    </span>
-                <span>  <%= @episodes['Title'] %> </span>
+                    <script>
+                    $(document).ready(function(){
+                        $('#select_series').change(function() {
+                            $('#season_ep_to_be_changed').html($(this).val());
+                        });
+                    });
+                
+                    </script>
 
-                <div style ='padding-bottom:20px;'><%= @episodes['Plot']%></div>
+
+                    <% season = 1 %>
+                    <% episodes_results = series_episodes_search(@series['Title'].gsub('+',' '), season)%>
+                    <% episodes_results = episodes_results["Episodes"] %>
+                    <% episode_number = 1 %>
+                    <%="Select Season: "%> 
+                    <div id="text_to_be_changed"><%= @day_of_week %></div>
+                    <%= select_tag :season_num, options_for_select([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], params[:seasoninum]), :id => "select_series"%>
+                    <% if episodes_results != false %>
+                        <h3 class = "col-xs-12"> Series Episodes, Season <span id='season_ep_to_be_changed'> <%= 1 %></span>  </h3>
+                        <% if episodes_results != nil %>
+                            <% episodes_results.each do |r| %>
+                            <div class = 'col-xs-6 col-lg-6'><h4><%="#{episode_number.to_s.rjust(2, '0')} | "%><%= link_to(" #{r["Title"]}".truncate(20) , "#".to_s)%></h4></div>
+                            <% episode_number += 1%>
+                            <% end %>
+                        <% else  %>
+                         <div class= "col-xs-12">  There are no Episodes on that season :(  </div>
+                        <% end %>
+                    
+                    <% end %>
+
+                <div style ='padding-bottom:20px;'></div>
                 <h1> </h1>
                  </span>
 

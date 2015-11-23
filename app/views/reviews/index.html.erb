@@ -3,7 +3,7 @@
                     <% review_of = single_search("#{review.movie_id}", true) %>
                 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"  style = "height: 320px" >
                     <div style = "padding-left = 20px; margin-botton:50px;"align= 'center' >
-                    <p style = 'width=10px'><%= review.body.strip.truncate(11) %></p>
+                    <p style = 'width=10px'><%= review.body.strip.truncate(20) %></p>
 
                     <% if review_of['Type'] == 'movie' %>
                         <% type = 'movies' %>

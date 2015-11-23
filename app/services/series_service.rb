@@ -27,4 +27,14 @@ class SeriesService
             http.request(req)}
         series_body = JSON.parse(res.body)
     end
+    def series_episodes(series, season='1')
+        series.strip!
+        url = URI.parse('http://www.omdbapi.com/')
+        series = series.gsub(' ', '+')
+        searcher = "?t=#{series}&Season=#{season}"
+        req = Net::HTTP::Get.new("#{url.to_s}#{searcher}&apikey=40584c09")
+        res = Net::HTTP.start(url.host, url.port){|http|
+            http.request(req)}
+        series_body = JSON.parse(res.body)
+    end
 end

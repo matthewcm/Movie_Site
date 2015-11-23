@@ -54,7 +54,7 @@ end
 
 group :production do
     # Use pg for PostgreSQL on Heroku
-    gem 'pg'
+    gem 'pg', '~> 0.18.3'
     gem 'rails_12factor'
 end
 

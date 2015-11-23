@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :reviews ,path: 'movies/:id/reviews'
   resources :series
   resources :users
+
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
